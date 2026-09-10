@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Javad Hakimpanah — UI/UX Designer & Front-End Developer</title>
+<meta name="description" content="Mid-level UI/UX designer and front-end developer in Toronto. Figma, React, Next.js, Flutter, and AI-powered product features." />
+<style>
+  :root {
+    --bg: #0e0e10;
+    --bg-soft: #17171b;
+    --fg: #ececef;
+    --muted: #9a9aa3;
+    --line: #26262d;
+    --accent: #ff7a59;
+    --accent-2: #7ab7ff;
+    --maxw: 1080px;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { color: var(--accent); }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  header { padding: 56px 0 24px; border-bottom: 1px solid var(--line); }
+  .name { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+  .role { color: var(--muted); margin-top: 4px; font-size: 15px; }
+  nav { margin-top: 22px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+  nav a { color: var(--fg); opacity: 0.78; }
+  nav a:hover { opacity: 1; color: var(--accent); }
+
+  .hero { padding: 64px 0 32px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; }
+  .hero p { font-size: 18px; color: var(--muted); max-width: 740px; margin: 0; }
+  .cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 500; border: 1px solid var(--line); color: var(--fg); }
+  .btn.primary { background: var(--accent); color: #1a1a1a; border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(1.07); }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  .h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: 0 0 26px; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; transition: transform .2s ease, border-color .2s ease; }
+  .card:hover { transform: translateY(-2px); border-color: #3a3a45; }
+  .card .tag { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .card h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.3; }
+  .card p { color: var(--muted); font-size: 14.5px; margin: 0; }
+  .card .stack { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .chip { font-size: 11.5px; border: 1px solid var(--line); padding: 3px 9px; border-radius: 999px; color: var(--muted); }
+
+  .case { padding: 36px 0 16px; border-top: 1px dashed var(--line); margin-top: 28px; }
+  .case:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  .case h3 { font-size: 24px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .case .meta { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .case .row { display: grid; grid-template-columns: 110px 1fr; gap: 14px; margin: 10px 0; align-items: start; }
+  .case .row .label { color: var(--accent-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; padding-top: 2px; }
+  .case .row .body { color: var(--fg); font-size: 15px; }
+
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 720px) { .skills { grid-template-columns: 1fr; } }
+  .skills .group { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .skills .group h4 { margin: 0 0 10px; font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; }
+  .skills .group p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+  footer { padding: 48px 0 64px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer .row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+  .placeholder-note { background: rgba(255,122,89,0.08); border: 1px dashed var(--accent);
+    padding: 14px 16px; border-radius: 10px; color: var(--accent); font-size: 13px; margin: 18px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="name">Javad Hakimpanah</div>
+  <div class="role">UI/UX Designer &nbsp;·&nbsp; Front-End Developer &nbsp;·&nbsp; Toronto, ON</div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#case-studies">Case studies</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" style="border-top:none;">
+  <h1>I design products and ship the front-end myself.</h1>
+  <p>5+ years bridging design and engineering — Figma through React, Next.js, and Flutter. Lately I've been building AI-powered product features: a nine-stage video generation pipeline, a 28-screen mobile marketplace, and the web client for an AI image platform. Available for mid-level UI/UX and front-end roles, remote or Toronto-area.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:mjhp29@yahoo.com">Get in touch</a>
+    <a class="btn" href="01_Resume_Javad_Hakimpanah_ATS.pdf" target="_blank" rel="noopener">Download résumé</a>
+    <a class="btn" href="https://www.linkedin.com/in/javadhakimpanah" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+
+<section id="work">
+  <h2 class="h2">Selected work</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="tag">AI pipeline · Solo build</div>
+      <h3>FrameChain — URL to finished video</h3>
+      <p>A nine-stage pipeline that reads a website and produces a hero background video: brief, storyboard, shot plan, keyframes, motion, assembly, export. Sole designer and developer.</p>
+      <div class="stack">
+        <span class="chip">Next.js 16</span><span class="chip">React 19</span>
+        <span class="chip">TypeScript</span><span class="chip">Claude API</span>
+        <span class="chip">Prisma</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Mobile · iOS + Android</div>
+      <h3>SkyPorter — Flutter marketplace</h3>
+      <p>Peer-to-peer baggage-sharing marketplace. 28 screens, two multi-step listing flows, in-app chat, push notifications. Designed the whole thing and wrote most of the code.</p>
+      <div class="stack">
+        <span class="chip">Flutter</span><span class="chip">Dart</span>
+        <span class="chip">Firebase</span><span class="chip">OAuth</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">AI product · Web client</div>
+      <h3>Reno Studio — renovation preview</h3>
+      <p>Upload a photo, describe a change, get a photorealistic preview. I own the web client: guided studio flow, stone→color→pattern material picker across two supplier catalogs, provider toggle.</p>
+      <div class="stack">
+        <span class="chip">Next.js</span><span class="chip">Gemini</span>
+        <span class="chip">Cloudflare R2</span><span class="chip">Vitest</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Client sites · Production</div>
+      <h3>Commercial marketing sites</h3>
+      <p>Designed and built production sites for Altin Construction, Altin Landscaping, and EliteViewGlass — on Cloudflare Workers with D1 database migrations.</p>
+      <div class="stack">
+        <span class="chip">Cloudflare Workers</span>
+        <span class="chip">D1</span><span class="chip">Responsive</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">E-commerce · UX + Brand</div>
+      <h3>Ehsan Foods — site UX & visual system</h3>
+      <p>Owned UX improvements on the e-commerce site — simplified browse and checkout, aligned visual identity across web, packaging, and social.</p>
+      <div class="stack">
+        <span class="chip">UX</span><span class="chip">Visual design</span>
+        <span class="chip">Packaging</span><span class="chip">Print + digital</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Fintech · Authentication flow</div>
+      <h3>Mofid Securities — login & sign-up</h3>
+      <p>Concept-to-final redesign of the broker's account creation experience. Typography, interaction patterns, and reduced-friction flow adopted across the platform.</p>
+      <div class="stack">
+        <span class="chip">Interaction design</span>
+        <span class="chip">Typography</span>
+        <span class="chip">Fintech</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="case-studies">
+  <h2 class="h2">Case studies</h2>
+
+  <div class="case">
+    <h3>FrameChain — turning a URL into a finished video</h3>
+    <div class="meta">Trimo Tech · Product Designer & Front-End Developer · Aug – Sep 2026 · Solo</div>
+    <div class="row"><div class="label">Problem</div><div class="body">Small companies want a motion hero for their landing page but can't justify a video production budget. Generic stock footage doesn't match their brand, and generative video tools produce disconnected clips with no narrative thread.</div></div>
+    <div class="row"><div class="label">Approach</div><div class="body">Designed a nine-stage pipeline that reads the company's own site and reasons its way to a shot list before generating anything: scrape → creative brief → story → locked chain plan → keyframes → motion → assembly → export. The first five stages are free and reversible, so you can iterate on the concept before spending a cent. Each generated frame carries visual continuity forward into the next, which is what keeps the clips reading as one film instead of six unrelated shots.</div></div>
+    <div class="row"><div class="label">Decision</div><div class="body">Put every AI provider behind one interface with a fixture implementation as the default. The whole flow runs offline, for free, with a complete worked example — so development and demos never touch a paid API. Naming a paid provider has to be explicit; an API key sitting in the environment isn't treated as permission to spend.</div></div>
+    <div class="row"><div class="label">Outcome</div><div class="body">Working end-to-end product. Cost is quoted before every paid step and runs that would exceed a configured cap are blocked outright — which matters when a single multi-stage job can chain a dozen billable generations.</div></div>
+    <div class="row"><div class="label">Stack</div><div class="body">Next.js 16 · React 19 · TypeScript · Prisma · Zod · Anthropic Claude · KIE · fal · Tailwind</div></div>
+  </div>
+
+  <div class="case">
+    <h3>SkyPorter — designing a two-sided marketplace for mobile</h3>
+    <div class="meta">Flutter · iOS & Android · Apr – Jun 2026 · Primary designer and developer</div>
+    <div class="row"><div class="label">Problem</div><div class="body">Travellers fly with unused baggage allowance; senders need cheap routes for parcels. Matching them means collecting a lot of structured detail — route, dates, weight, item type, budget — from two different user types without the form fatigue that kills marketplace signups.</div></div>
+    <div class="row"><div class="label">Approach</div><div class="body">Split each side into a five-step guided flow rather than one long form, with drafts saved between steps so nobody loses progress. Designed 28 screens covering both flows plus explore, matching, in-app chat, notifications, saved listings, and profile. Built a weight and fair-pricing helper so users get an honest estimate before they commit to a listing.</div></div>
+    <div class="row"><div class="label">Decision</div><div class="body">Native-feeling tab navigation and platform-appropriate sign-in (Google on Android, Apple on iOS) rather than a single cross-platform compromise. Marketplace trust depends on the app feeling native on the device you already trust.</div></div>
+    <div class="row"><div class="label">Outcome</div><div class="body">Complete iOS and Android app built in Flutter, wired to a Node.js REST API with push notifications through Firebase. I wrote 53 of the 64 commits on the mobile client.</div></div>
+    <div class="row"><div class="label">Stack</div><div class="body">Flutter · Dart · Firebase Cloud Messaging · Google & Apple Sign-In · REST</div></div>
+  </div>
+
+  <div class="case">
+    <h3>Reno Studio — making an AI image tool usable by homeowners</h3>
+    <div class="meta">Trimo Tech · Web client owner · May 2026 – present</div>
+    <div class="row"><div class="label">Problem</div><div class="body">The underlying model can produce a photorealistic renovation preview, but only if the prompt is precise. Homeowners don't write precise prompts — they say "make my driveway nicer." The gap between what the user can express and what the model needs was the whole product problem.</div></div>
+    <div class="row"><div class="label">Approach</div><div class="body">Replaced the free-text prompt box with a guided flow that walks the user through real supplier catalogs — stone, then colour, then laying pattern — and composes the technical prompt from those picks behind the scenes. Users are choosing products they can actually buy, not describing an aesthetic. Generalized it to handle two suppliers with different catalog structures, and built the step count to be dynamic so new renovation categories can add their own steps.</div></div>
+    <div class="row"><div class="label">Decision</div><div class="body">Serve catalog imagery from object storage rather than the repo. Hundreds of product swatches in git made checkouts slow and bloated history — moving them to R2 kept the repo light and made catalog updates a data change rather than a deploy.</div></div>
+    <div class="row"><div class="label">Outcome</div><div class="body">Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</div></div>
+    <div class="row"><div class="label">Stack</div><div class="body">Next.js · TypeScript · Google Gemini · Cloudflare R2 · Vitest · Biome</div></div>
+  </div>
+
+  <div class="case">
+    <h3>Redesigning the Ehsan Foods e-commerce experience</h3>
+    <div class="meta">Ehsan Foods · UX & Graphic Designer · 2023–2024</div>
+    <div class="row"><div class="label">Problem</div><div class="body">Customers struggled with product discovery on the existing site, and brand expression was inconsistent between the web store, packaging, and social.</div></div>
+    <div class="row"><div class="label">Approach</div><div class="body">Audited the browse and checkout flows, simplified the category structure, and tightened typography and spacing. Built a single visual system that flexed across web, packaging, and social. Ran feedback loops with the marketing and product teams to land tight visual coherence.</div></div>
+    <div class="row"><div class="label">Outcome</div><div class="body">A faster, more intuitive customer journey. Visual identity now consistent across every touchpoint — web, in-package, and social campaigns.</div></div>
+    <div class="row"><div class="label">Stack</div><div class="body">Figma · Adobe CC · Web + print production</div></div>
+  </div>
+
+  <div class="case">
+    <h3>Redesigning the Mofid Securities login and sign-up</h3>
+    <div class="meta">Mofid Securities · Designer · 2018–2019</div>
+    <div class="row"><div class="label">Problem</div><div class="body">The broker's account creation flow was friction-heavy and visually inconsistent with the rest of the platform, hurting completion.</div></div>
+    <div class="row"><div class="label">Approach</div><div class="body">Concept-to-final redesign of the authentication experience — refined typography hierarchy, interaction patterns, and reduced the steps to first usable account state. Documented patterns for adoption across the broader platform.</div></div>
+    <div class="row"><div class="label">Outcome</div><div class="body">Patterns from this work were adopted across the platform. Smoother first-run experience for new account holders.</div></div>
+    <div class="row"><div class="label">Stack</div><div class="body">Figma · Typography systems · Interaction design</div></div>
+  </div>
+
+  <p class="placeholder-note">Add screenshots: these case studies read well but land much harder with visuals. Drop 2–3 images per project — screens, before/after, a flow diagram — and this becomes a portfolio rather than a written summary.</p>
+</section>
+
+<section id="skills">
+  <h2 class="h2">Skills</h2>
+  <div class="skills">
+    <div class="group">
+      <h4>Design</h4>
+      <p>Figma, design systems, prototyping, user research, usability testing, wireframing, interaction & visual design, accessibility (WCAG)</p>
+    </div>
+    <div class="group">
+      <h4>Front-End</h4>
+      <p>HTML5, CSS3, Tailwind, JavaScript, TypeScript, React, Next.js, component architecture, responsive & mobile-first</p>
+    </div>
+    <div class="group">
+      <h4>Mobile</h4>
+      <p>Flutter, Dart, iOS & Android, cross-platform UI, Firebase Cloud Messaging, Google & Apple Sign-In</p>
+    </div>
+    <div class="group">
+      <h4>AI integration</h4>
+      <p>Anthropic Claude API, OpenAI, Google Gemini, prompt engineering, provider abstraction, text-to-image and text-to-video pipelines, structured output validation, cost controls</p>
+    </div>
+    <div class="group">
+      <h4>Back-end & infrastructure</h4>
+      <p>Node.js, REST APIs, Prisma, PostgreSQL, SQLite, Cloudflare Workers, Cloudflare R2, AWS S3, Docker, Git, Vitest</p>
+    </div>
+    <div class="group">
+      <h4>Tools</h4>
+      <p>Cursor, Claude Code, GitHub Copilot, Adobe Photoshop, Illustrator, Premiere, photography & videography</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="h2">About</h2>
+  <p style="max-width:760px; color:var(--muted); font-size:16px;">
+    I'm a UI/UX designer and front-end developer based in the Toronto area. I've spent the last five years moving between Figma and code — designing the screens, then shipping the front-end myself. Most recently that's meant building AI-powered products at Trimo Tech: pipelines that generate video, tools that turn a photo into a renovation preview, and the interface work that makes any of it usable by a normal person. I care about clean visual systems, fast loading, and accessible defaults. Bilingual (English / Persian), Canadian citizen, available for mid-level UI/UX or front-end roles — remote anywhere in Canada or the US, or hybrid/onsite in the GTA.
+  </p>
+</section>
+
+<footer id="contact">
+  <div class="row">
+    <div>
+      <div style="color:var(--fg); font-weight:600; font-size:16px;">Let's talk.</div>
+      <div style="margin-top:6px;">
+        <a href="mailto:mjhp29@yahoo.com">mjhp29@yahoo.com</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/javadhakimpanah" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div style="text-align:right;">© 2026 Javad Hakimpanah</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
