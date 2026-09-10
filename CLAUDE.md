@@ -21,7 +21,7 @@ The site's job is to get him interviews. Every change should be evaluated agains
 Do not break these without asking:
 
 1. **Single self-contained `index.html`.** All CSS is inline in `<style>` in the head. No separate stylesheets, no JS files, no build step, no framework, no npm dependencies. The whole site must work by opening the file.
-2. **No external runtime dependencies.** No CDN links for fonts, icons, or libraries. If you need an icon, inline the SVG. **One approved exception (Sep 10, 2026):** the Bitter slab serif is self-hosted from `fonts/bitter-latin.woff2` (one ~34KB variable file, latin subset, SIL OFL — keep `fonts/OFL.txt` beside it). Body text stays on the system stack. Don't add further fonts without asking.
+2. **No external runtime dependencies.** No CDN links for fonts, icons, or libraries. If you need an icon, inline the SVG. **One approved exception (Sep 10, 2026):** Schibsted Grotesk is self-hosted from `fonts/schibsted-grotesk-latin.woff2` (one ~46KB variable file covering weights 400–900, latin subset, SIL OFL — keep `fonts/OFL.txt` beside it) and used for all text. It replaced Bitter the same day at Javad's request ("like Bricolage Grotesque, but more formal"). Don't add a second font or swap it without asking.
 3. **`.nojekyll` must stay.** It stops GitHub Pages running Jekyll.
 4. **`01_Resume_Javad_Hakimpanah_ATS.pdf` must stay at repo root** — the hero links to it relatively. Don't rename or move it.
 5. **Relative links only** for internal assets. The site is served from a subpath (`/portfolio/`), so absolute paths like `/images/foo.png` will 404. Use `images/foo.png`.
@@ -34,7 +34,8 @@ Do not break these without asking:
 portfolio/
 ├── index.html                            # the entire site (CSS, inline SVG art, small script)
 ├── 01_Resume_Javad_Hakimpanah_ATS.pdf    # linked from the intro and footer
-├── fonts/bitter-latin.woff2 + OFL.txt    # self-hosted heading font and its license
+├── fonts/schibsted-grotesk-latin.woff2   # self-hosted site font
+├── fonts/OFL.txt                         # its license (required by the OFL)
 ├── images/og-card.png                    # Open Graph / Twitter share image (1200×630)
 ├── .nojekyll                             # required for GitHub Pages
 ├── .gitignore
@@ -63,7 +64,7 @@ Defined as CSS custom properties in `:root`. Use these — don't hardcode colors
 
 The old coral `#ff7a59` and blue `#7ab7ff` fail on a light ground (2.4:1 and 2.0:1) — don't bring them back for text.
 
-**Type:** Bitter (self-hosted, see constraint 2) for headings, the hero, the About paragraph and case-study labels; system sans for body at 17px/1.65. Section headings end in a `--pen` full stop (`<span class="stop">.</span>`). Headings use `text-wrap: balance`; hyphenated compounds that break badly get a `.nowrap` span (never change the words to fix a wrap).
+**Type:** one family — Schibsted Grotesk (self-hosted, see constraint 2) — for everything, via `--sans` (system sans is only the fallback). Body 17px/1.65; headings 700 with negative tracking (hero −0.03em, section headings −0.028em, case titles −0.022em); nav and "Hire me" are 600 uppercase at +0.16em. Section headings end in a `--pen` full stop (`<span class="stop">.</span>`). Headings use `text-wrap: balance`; hyphenated compounds that break badly get a `.nowrap` span (never change the words to fix a wrap).
 
 **Visual language:** two-colour "riso" line illustrations — coral stroke over a pale-blue fill shifted about 5–7px down-left. In SVG, each shape is defined once in `<defs>` and drawn with `<use>` as `.rz-fill` (offset) + `.rz-line`; add `.rz-base` (paper fill) underneath when a shape must hide what's behind it. Patterns: `url(#hatch)` / `url(#dots)` (shared paint servers at the top of `<body>`). Buttons are an outlined label over an offset hatch (`.btn`, `.btn.solid`).
 
@@ -161,7 +162,7 @@ If adding images: optimize aggressively (WebP, sized for display), add `loading=
 ## Working agreements
 
 - **Ask before restructuring.** The content and its wording were worked over carefully. Layout, styling, and additions are fair game; rewriting the case-study copy is not, unless asked.
-- **Keep it fast.** A visit costs about 48KB: `index.html` (~14KB gzipped) plus the 34KB font — no images load on the page itself. That's a feature — he designs performance-conscious interfaces and the site should demonstrate it. No loading screens.
+- **Keep it fast.** A visit costs about 61KB: `index.html` (~14KB gzipped) plus the 46KB font — no images load on the page itself. That's a feature — he designs performance-conscious interfaces and the site should demonstrate it. No loading screens.
 - **Test by opening `index.html` directly** in a browser (`python3 -m http.server 8000`), and check the résumé link resolves.
 - **Deploy = `git push origin main`.** Live in about a minute.
 - If you change anything factual, tell Javad explicitly so he can update the résumé in `~/Documents/Claude/Projects/Jobjob/` to match. The résumé, portfolio, and his LinkedIn all have to agree.

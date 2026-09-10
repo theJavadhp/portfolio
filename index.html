@@ -7,7 +7,7 @@
 <meta name="description" content="Mid-level UI/UX designer and front-end developer in Toronto. Figma, React, Next.js, Flutter, and AI-powered product features." />
 <meta name="theme-color" content="#f5f8fb" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%2246%22%20height%3D%2244%22%20rx%3D%2211%22%20fill%3D%22%23bfdcf5%22/%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%2246%22%20height%3D%2244%22%20rx%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%23c93d1c%22%20stroke-width%3D%225%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2241%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2229%22%20font-weight%3D%22700%22%20fill%3D%22%2313204f%22%20text-anchor%3D%22middle%22%3EJ%3C/text%3E%3C/svg%3E" />
-<link rel="preload" href="fonts/bitter-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Javad Hakimpanah" />
 <meta property="og:title" content="Javad Hakimpanah — UI/UX Designer & Front-End Developer" />
@@ -22,11 +22,11 @@
 <meta name="twitter:image" content="https://thejavadhp.github.io/portfolio/images/og-card.png" />
 <script>document.documentElement.classList.add('js');</script>
 <style>
-  /* Bitter is self-hosted (SIL OFL, see fonts/OFL.txt): one variable file, latin subset. */
+  /* Schibsted Grotesk is self-hosted (SIL OFL, see fonts/OFL.txt): one variable file, latin subset. */
   @font-face {
-    font-family: "Bitter";
-    src: url("fonts/bitter-latin.woff2") format("woff2");
-    font-weight: 100 900;
+    font-family: "Schibsted Grotesk";
+    src: url("fonts/schibsted-grotesk-latin.woff2") format("woff2");
+    font-weight: 400 900;
     font-style: normal;
     font-display: swap;
   }
@@ -42,8 +42,7 @@
     --rule: #d5dee9;    /* hairlines (decorative only) */
     --chip: #bccadb;    /* chip outlines (decorative only) */
 
-    --serif: "Bitter", Rockwell, "Roboto Slab", Georgia, serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --sans: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
     --fw: clamp(8px, 1.25vw, 18px);
     --maxw: 1140px;
@@ -117,10 +116,11 @@
   .brand:hover { color: var(--ink); }
   .brand svg { width: 44px; height: 38px; flex: none; }
   .brand-text { display: flex; flex-direction: column; padding-left: 14px; border-left: 1px solid var(--rule); line-height: 1.25; }
-  .brand-name { font: 700 16px/1.25 var(--serif); }
+  .brand-name { font: 700 16px/1.25 var(--sans); letter-spacing: -0.01em; }
   .brand-role { font-size: 12.5px; color: var(--slate); }
-  .mono-back { font: 700 27px var(--serif); fill: var(--fill); }
-  .mono-front { font: 700 27px var(--serif); fill: var(--line); }
+  .mono-back, .mono-front { font: 800 27px var(--sans); letter-spacing: -0.04em; }
+  .mono-back { fill: var(--fill); }
+  .mono-front { fill: var(--line); }
 
   #site-nav { margin-left: auto; display: flex; align-items: center; gap: clamp(16px, 2vw, 30px); }
   #site-nav a, .menu-btn, .hire {
@@ -162,14 +162,14 @@
     padding-block: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 40px);
   }
   .hero h1 {
-    font: 400 clamp(44px, 4.8vw, 70px)/1.04 var(--serif);
-    letter-spacing: -0.012em; color: var(--ink);
+    font: 400 clamp(44px, 4.8vw, 70px)/1.02 var(--sans);
+    letter-spacing: -0.03em; color: var(--ink);
   }
   .hero h1 .l { display: block; }
   .hero h1 strong { font-weight: 700; }
   .hero-sub {
     margin-top: clamp(18px, 2vw, 28px); max-width: 21em;
-    font: 400 clamp(20px, 1.75vw, 25px)/1.45 var(--serif); color: var(--slate);
+    font: 400 clamp(20px, 1.75vw, 25px)/1.4 var(--sans); letter-spacing: -0.01em; color: var(--slate);
   }
   .scene { --mx: 0; --my: 0; position: relative; }
   .scene svg { width: 118%; margin-left: -18%; height: auto; overflow: visible; }
@@ -199,7 +199,7 @@
 
   /* ---------- shared section type ---------- */
   .section { padding-block: clamp(48px, 5.5vw, 84px); }
-  .display { font: 700 clamp(34px, 4vw, 52px)/1.1 var(--serif); letter-spacing: -0.01em; color: var(--ink); }
+  .display { font: 700 clamp(34px, 4vw, 52px)/1.06 var(--sans); letter-spacing: -0.028em; color: var(--ink); }
 
   /* ---------- buttons: outline label over an offset hatch ---------- */
   .btn { position: relative; display: inline-block; isolation: isolate; text-decoration: none; border-radius: 9px; }
@@ -255,7 +255,7 @@
   .work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 72px); padding: 0; list-style: none; }
   .work > li { padding-block: 28px 34px; border-top: 1px solid var(--rule); }
   .work .meta { margin-bottom: 10px; }
-  .work h3 { font: 700 clamp(21px, 1.9vw, 25px)/1.25 var(--serif); margin-bottom: 10px; }
+  .work h3 { font: 700 clamp(21px, 1.9vw, 25px)/1.22 var(--sans); letter-spacing: -0.015em; margin-bottom: 10px; }
   .work h3 a { color: var(--ink); text-decoration: none; }
   .work h3 a:hover { text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 2px; }
   .work p { color: var(--slate); font-size: 16px; max-width: 58ch; }
@@ -275,10 +275,10 @@
   .case:first-of-type { border-top: 0; padding-top: 8px; }
   .case-art { position: sticky; top: calc(var(--topbar) + var(--fw) + 32px); align-self: start; }
   .case-art svg { width: 100%; height: auto; overflow: visible; }
-  .case h3 { font: 700 clamp(26px, 2.7vw, 36px)/1.18 var(--serif); letter-spacing: -0.005em; margin-bottom: 14px; max-width: 30ch; }
+  .case h3 { font: 700 clamp(26px, 2.7vw, 36px)/1.14 var(--sans); letter-spacing: -0.022em; margin-bottom: 14px; max-width: 30ch; }
   .case > div > .meta { margin-bottom: 30px; }
   .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; }
-  .facts dt { font: 700 17px/1.6 var(--serif); color: var(--ink); }
+  .facts dt { font: 700 16.5px/1.65 var(--sans); color: var(--ink); }
   .facts dd { font-size: 16.5px; line-height: 1.7; max-width: 64ch; }
   .facts dd .chips { padding-top: 3px; }
   @media (max-width: 760px) {
@@ -291,20 +291,20 @@
   /* ---------- skills ---------- */
   .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px clamp(28px, 4vw, 56px); margin-top: 36px; }
   .skills > div { padding-block: 22px 26px; border-top: 1px solid var(--rule); }
-  .skills h3 { font: 700 19px/1.3 var(--serif); margin-bottom: 8px; }
+  .skills h3 { font: 700 19px/1.3 var(--sans); letter-spacing: -0.012em; margin-bottom: 8px; }
   .skills p { color: var(--slate); font-size: 16px; }
   @media (max-width: 1000px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 640px)  { .skills { grid-template-columns: 1fr; } }
 
   /* ---------- about ---------- */
   .about { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 24px clamp(32px, 5vw, 80px); align-items: start; }
-  .about p { font: 400 clamp(19px, 1.55vw, 22px)/1.72 var(--serif); max-width: 36em; }
+  .about p { font: 400 clamp(19px, 1.5vw, 21px)/1.62 var(--sans); letter-spacing: -0.008em; max-width: 34em; }
   @media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
 
   /* ---------- footer ---------- */
   footer { border-top: 1px solid var(--rule); padding-block: clamp(64px, 8vw, 104px) clamp(40px, 5vw, 64px); }
   .foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; }
-  .foot-mail { display: inline-block; margin-top: 18px; font: 700 clamp(22px, 2.6vw, 34px)/1.25 var(--serif); overflow-wrap: anywhere; }
+  .foot-mail { display: inline-block; margin-top: 18px; font: 700 clamp(22px, 2.6vw, 34px)/1.2 var(--sans); letter-spacing: -0.02em; overflow-wrap: anywhere; }
   .foot-links { display: flex; flex-wrap: wrap; gap: 14px 28px; padding: 0; list-style: none; font-weight: 700; }
   .foot-small { margin-top: 56px; font-size: 14px; color: var(--slate); }
   @media (max-width: 760px) { .foot { grid-template-columns: 1fr; } }
