@@ -84,8 +84,8 @@ This is a résumé-adjacent document used in real job applications. **Factual er
 
 - **Never invent accomplishments, metrics, employers, dates, or technologies.** If you want to add a claim and can't source it from this file or from Javad directly, ask him.
 - **Never change company names, job titles, or date ranges** without explicit instruction. These get verified in reference and background checks.
-- **Don't add skills he hasn't confirmed.** He specifically had backend technologies (NestJS, PostgreSQL, Docker, AWS S3) removed because a teammate built that layer, not him. Don't reintroduce them.
-- Existing numbers that ARE verified: 28 screens (SkyPorter), 53 of 64 commits (SkyPorter), nine-stage pipeline (FrameChain), four AI providers (FrameChain), two supplier catalogs (Reno Studio), ten-year tenure (Mofid).
+- **Don't add skills he hasn't confirmed.** He specifically had backend technologies (NestJS, PostgreSQL, Docker, AWS S3) removed because a teammate built that layer, not him. Don't reintroduce them. The same goes for fal and Vertex AI: neither appears in any of his code (checked Sep 10, 2026), and both were removed from the résumé.
+- Existing numbers that ARE verified: 28 screens (SkyPorter), 53 of 64 commits (SkyPorter), nine-stage pipeline (FrameChain), two supplier catalogs (Reno Studio), ten-year tenure (Mofid).
 - Wording like "roughly," "over a decade," and "primary developer" is deliberately hedged. Don't sharpen hedged claims into precise ones.
 
 ---
@@ -96,8 +96,8 @@ This is a résumé-adjacent document used in real job applications. **Factual er
 
 | Period | Role | Company |
 |---|---|---|
-| Jun 2026 – present | Product Designer & Front-End Developer | Trimo Tech (early-stage startup, Toronto — he's a co-founder but the site deliberately does **not** say so) |
-| Jul 2024 – Jun 2026 | Independent Designer & Content Creator | Self-employed |
+| May 2026 – present | Product Designer & Front-End Developer | Trimo Tech (early-stage startup, Toronto — he's a co-founder but the site deliberately does **not** say so) |
+| Jul 2024 – May 2026 | Independent Designer & Content Creator | Self-employed |
 | Jan 2023 – Jul 2024 | UX Designer & Graphic Designer | Ehsan Foods |
 | 2013 – Jan 2023 | UI/UX Designer | Mofid (online brokerage & stock trading platform, Iran) |
 
@@ -110,17 +110,19 @@ This is a résumé-adjacent document used in real job applications. **Factual er
 ### Projects featured on the site
 
 **FrameChain** (Aug–Sep 2026, Trimo Tech, solo — 221 commits, ~28k LOC)
-Next.js 16, React 19, TypeScript, Prisma, Zod, Tailwind. Nine-stage pipeline turning a website URL into a hero background video: scrape → brief → story → chain plan → keyframes → motion → assembly → export. AI providers: Anthropic Claude (reasoning/copy), KIE and fal (image/video — nano-banana, Kling, Seedance). Provider abstraction with fixture fallbacks so the full flow runs offline at zero cost. Spend-reservation system quotes cost before paid steps and blocks runs over a configured cap. Test coverage throughout.
+Next.js 16, React 19, TypeScript, Prisma, Zod, Tailwind. Repo: `~/workspace/idea to video factory`. Nine-stage pipeline turning a website URL into a hero background video — canonical list is `lib/stages.ts`: analyze (scrape) → brief → story → refine → lock (chain plan) → frames (keyframes) → motion → assemble → export. AI: Anthropic Claude called directly (reasoning/copy); image and video models called through KIE — nano-banana (pro/edit), GPT Image 2, Kling 3.0, Seedance 2.5. **No fal integration exists in the repo or its git history** (checked Sep 10, 2026) — removed from the site. The résumé was corrected the same day to name Claude and the KIE-hosted models instead of "KIE and fal" / "four AI providers". Provider abstraction with fixture fallbacks so the full flow runs offline at zero cost. Spend-reservation system quotes cost before paid steps and blocks runs over a configured cap. Test coverage throughout.
 
 **SkyPorter** (Apr–Jun 2026, Flutter — 53 of 64 commits his, ~26k LOC)
-Peer-to-peer baggage-sharing marketplace, iOS + Android. 28 screens: two five-step guided listing flows (offer space / look for space), explore, matching, in-app chat, notifications, saved listings, profile. Flutter + Dart, Google & Apple Sign-In, Firebase Cloud Messaging, service layer against a Node.js REST API. Backend was built by a teammate — **do not attribute it to Javad**.
+Peer-to-peer baggage-sharing marketplace, iOS + Android. 28 screens: two five-step guided listing flows (offer space / look for space), explore, matching, in-app chat, notifications, saved listings, profile. Repo: `~/workspace/baggage_share_mobile_app`. Flutter + Dart, Google & Apple Sign-In (Apple button is iOS-only; Google shows on both platforms), native iOS tab bar, Firebase Cloud Messaging, service layer against a Node.js REST API. Unfinished listings can be saved as drafts; the look-for-space flow shows a weight × price-per-kg estimated total. `lib/fair_pricing.dart` (a fairness meter for listing cards) exists but is **not wired in** — don't claim it. Backend was built by a teammate — **do not attribute it to Javad**.
 
 **Reno Studio** (May 2026 – present, Trimo Tech — 77 commits his, web client only)
-AI home-renovation preview: upload a photo, describe a change, get a photorealistic result. He owns the **web client** — guided studio flow, stone → colour → pattern material picker across two supplier catalogs (UniLock, Techo-Bloc), provider-aware prompt composition, R2-backed asset delivery, dynamic step count. Also wrote the design specs and implementation plans. Backend (NestJS/Postgres/Redis/BullMQ) is a teammate's — **not his**.
+AI home-renovation preview: upload a photo, describe a change, get a photorealistic result. He owns the **web client** — guided studio flow, stone → colour → pattern material picker across two supplier catalogs (UniLock, Techo-Bloc), provider-aware prompt composition, R2-backed asset delivery, dynamic step count. Also wrote the design specs and implementation plans. Backend (NestJS/Postgres/Redis/BullMQ) is a teammate's — **not his**. Repo: `~/workspace/reno-platform`. Start date: Javad confirmed May 2026 (Sep 10, 2026), though his first commit is Jun 7, 2026; the same day he moved his Trimo Tech start to May 2026 so the two agree. R2 decision is his (design doc 2026-06-15): 116 images (~17 MB) stripped from unpushed git history and served from R2 instead.
 
 **Client marketing sites** — Altin Construction, Altin Landscaping, EliteViewGlass. Cloudflare Workers + D1 migrations.
 
-**Mofid** (2013–Jan 2023) — ten years designing brokerage and trading interfaces. Known specific: concept-to-final redesign of the account login/sign-up flow, patterns adopted platform-wide. Other bullets on the résumé (order entry, portfolio views, market data) are **plausible inference, not confirmed** — flag to Javad before leaning on them.
+**Ehsan Foods** (Jan 2023 – Jul 2024) — confirmed by Javad (Sep 10, 2026): simplified browse, checkout, and the category structure; tightened typography and spacing; the customer journey got faster; one visual system across web, packaging, and social.
+
+**Mofid** (2013–Jan 2023) — ten years designing brokerage and trading interfaces. Confirmed by Javad (Sep 10, 2026): asked which Mofid work he designed, he named the website and the sign-in/registration flow. The sign-up redesign was concept-to-final with patterns adopted platform-wide; the old flow was friction-heavy, hurt completion, and was visually inconsistent with the platform; the redesign cut the steps to a usable account. **Order entry, portfolio views, and market data were not confirmed** and were removed from the site and the résumé. He confirmed his Mofid work covered mobile as well as web.
 
 ---
 
