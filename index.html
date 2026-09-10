@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Javad Hakimpanah — UI/UX Designer & Front-End Developer</title>
 <meta name="description" content="Mid-level UI/UX designer and front-end developer in Toronto. Figma, React, Next.js, Flutter, and AI-powered product features." />
+<meta name="theme-color" content="#0e0e10" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230e0e10%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20font-family%3D%22-apple-system%2CHelvetica%2CArial%2Csans-serif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20fill%3D%22%23ff7a59%22%20text-anchor%3D%22middle%22%3EJH%3C/text%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Javad Hakimpanah" />
+<meta property="og:title" content="Javad Hakimpanah — UI/UX Designer & Front-End Developer" />
+<meta property="og:description" content="Mid-level UI/UX designer and front-end developer in Toronto. Figma, React, Next.js, Flutter, and AI-powered product features." />
+<meta property="og:image" content="https://thejavadhp.github.io/portfolio/images/og-card.jpg" />
+<meta property="og:url" content="https://thejavadhp.github.io/portfolio/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Javad Hakimpanah — UI/UX Designer & Front-End Developer" />
+<meta name="twitter:description" content="Mid-level UI/UX designer and front-end developer in Toronto. Figma, React, Next.js, Flutter, and AI-powered product features." />
+<meta name="twitter:image" content="https://thejavadhp.github.io/portfolio/images/og-card.jpg" />
 <style>
   :root {
     --bg: #0e0e10;
@@ -23,25 +35,55 @@
     -webkit-font-smoothing: antialiased; }
   a { color: var(--accent-2); text-decoration: none; }
   a:hover { color: var(--accent); }
+  img { display: block; max-width: 100%; }
+
+  /* accessibility */
+  .skip-link { position: absolute; left: 16px; top: -60px; background: var(--accent);
+    color: #1a1a1a; padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    z-index: 100; transition: top .15s ease; }
+  .skip-link:focus { top: 16px; }
+  a:focus-visible, button:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 4px; }
+  :focus:not(:focus-visible) { outline: none; }
+
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-  header { padding: 56px 0 24px; border-bottom: 1px solid var(--line); }
-  .name { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
-  .role { color: var(--muted); margin-top: 4px; font-size: 15px; }
-  nav { margin-top: 22px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+  header { padding: 32px 0 24px; border-bottom: 1px solid var(--line); }
+  header .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+  .name { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  .role { color: var(--muted); margin-top: 4px; font-size: 14px; }
+  nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; align-items: center; padding-top: 2px; }
   nav a { color: var(--fg); opacity: 0.78; }
   nav a:hover { opacity: 1; color: var(--accent); }
 
-  .hero { padding: 64px 0 32px; }
-  .hero h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; }
-  .hero p { font-size: 18px; color: var(--muted); max-width: 740px; margin: 0; }
+  /* ---- hero: asymmetric split ---- */
+  .hero { padding: 56px 0 60px; border-top: none; display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr); gap: 44px; align-items: center; }
+  .hero-copy .eyebrow { color: var(--accent); font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.14em; font-weight: 600; margin: 0 0 14px; }
+  .hero h1 { font-size: clamp(30px, 4.4vw, 50px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 18px; }
+  .hero p { font-size: 17px; color: var(--muted); max-width: 520px; margin: 0; }
   .cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 500; border: 1px solid var(--line); color: var(--fg); }
+  .btn { display: inline-block; padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 500;
+    border: 1px solid var(--line); color: var(--fg); transition: border-color .15s ease, color .15s ease, transform .1s ease; }
   .btn.primary { background: var(--accent); color: #1a1a1a; border-color: var(--accent); }
   .btn.primary:hover { filter: brightness(1.07); }
   .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn:active { transform: translateY(1px); }
+
+  .hero-visual { position: relative; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); background: var(--bg-soft); aspect-ratio: 4/3; }
+  .hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 20% 35%; }
+  .hero-visual::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(255,122,89,0.14), rgba(14,14,16,0) 55%); pointer-events: none; }
+
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; gap: 28px; }
+    .hero-visual { order: -1; aspect-ratio: 16/10; }
+  }
 
   section { padding: 48px 0; border-top: 1px solid var(--line); }
   .h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: 0 0 26px; }
+  .section-intro { color: var(--muted); font-size: 15px; max-width: 560px; margin: -14px 0 26px; }
 
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
   @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
@@ -55,13 +97,25 @@
   .card .stack { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
   .chip { font-size: 11.5px; border: 1px solid var(--line); padding: 3px 9px; border-radius: 999px; color: var(--muted); }
 
-  .case { padding: 36px 0 16px; border-top: 1px dashed var(--line); margin-top: 28px; }
-  .case:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
-  .case h3 { font-size: 24px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  /* ---- case studies: alternating visual + content ---- */
+  .case { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 32px;
+    padding: 36px 0; border-top: 1px dashed var(--line); margin-top: 4px; align-items: start; }
+  .case:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+  .case:nth-of-type(even) { grid-template-columns: 1fr minmax(200px, 300px); }
+  .case:nth-of-type(even) .case-visual { order: 2; }
+  .case-visual { border: 1px solid var(--line); background: var(--bg-soft); border-radius: var(--radius);
+    overflow: hidden; aspect-ratio: 4/3; }
+  .case-visual svg { width: 100%; height: 100%; display: block; }
+  .case h3 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.01em; }
   .case .meta { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
   .case .row { display: grid; grid-template-columns: 110px 1fr; gap: 14px; margin: 10px 0; align-items: start; }
   .case .row .label { color: var(--accent-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; padding-top: 2px; }
   .case .row .body { color: var(--fg); font-size: 15px; }
+  @media (max-width: 720px) {
+    .case, .case:nth-of-type(even) { grid-template-columns: 1fr; gap: 18px; }
+    .case-visual, .case:nth-of-type(even) .case-visual { order: -1; aspect-ratio: 16/10; }
+    .case .row { grid-template-columns: 1fr; gap: 4px; }
+  }
 
   .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
   @media (max-width: 720px) { .skills { grid-template-columns: 1fr; } }
@@ -69,46 +123,65 @@
   .skills .group h4 { margin: 0 0 10px; font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; }
   .skills .group p { margin: 0; color: var(--muted); font-size: 14.5px; }
 
+  #about p { max-width: 720px; color: var(--muted); font-size: 16.5px; margin: 0; }
+
   footer { padding: 48px 0 64px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
   footer .row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
-  .placeholder-note { background: rgba(255,122,89,0.08); border: 1px dashed var(--accent);
-    padding: 14px 16px; border-radius: 10px; color: var(--accent); font-size: 13px; margin: 18px 0 0; }
+  /* progressive-enhancement scroll reveal: only active once .js is set, and only
+     when the visitor hasn't asked for reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+    .js .reveal.in-view { opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrap">
 
 <header>
-  <div class="name">Javad Hakimpanah</div>
-  <div class="role">UI/UX Designer &nbsp;·&nbsp; Front-End Developer &nbsp;·&nbsp; Toronto, ON</div>
-  <nav>
-    <a href="#work">Work</a>
-    <a href="#case-studies">Case studies</a>
-    <a href="#skills">Skills</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="row">
+    <div>
+      <div class="name">Javad Hakimpanah</div>
+      <div class="role">UI/UX Designer &nbsp;·&nbsp; Front-End Developer &nbsp;·&nbsp; Toronto, ON</div>
+    </div>
+    <nav aria-label="Section">
+      <a href="#work">Work</a>
+      <a href="#case-studies">Case studies</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero" style="border-top:none;">
-  <h1>I design products and ship the front-end myself.</h1>
-  <p>Over a decade bridging design and engineering — ten years on trading platforms, now Figma through React, Next.js, and Flutter. Lately I've been building AI-powered product features: a nine-stage video generation pipeline, a 28-screen mobile marketplace, and the web client for an AI image platform. Available for mid-level UI/UX and front-end roles, remote or Toronto-area.</p>
-  <div class="cta">
-    <a class="btn primary" href="mailto:mjhp29@yahoo.com">Get in touch</a>
-    <a class="btn" href="01_Resume_Javad_Hakimpanah_ATS.pdf" target="_blank" rel="noopener">Download résumé</a>
-    <a class="btn" href="https://www.linkedin.com/in/javadhakimpanah" target="_blank" rel="noopener">LinkedIn</a>
+<main id="main">
+
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Available for mid-level roles</p>
+    <h1>I design products and ship the front-end myself.</h1>
+    <p>Over a decade bridging design and engineering — ten years on trading platforms, now Figma through React, Next.js, and Flutter. Lately I've been building AI-powered product features: a nine-stage video generation pipeline, a 28-screen mobile marketplace, and the web client for an AI image platform. Available for mid-level UI/UX and front-end roles, remote or Toronto-area.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:mjhp29@yahoo.com">Get in touch</a>
+      <a class="btn" href="01_Resume_Javad_Hakimpanah_ATS.pdf" target="_blank" rel="noopener">Download résumé</a>
+      <a class="btn" href="https://www.linkedin.com/in/javadhakimpanah" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="images/hero-workspace.webp" alt="Hands typing on a laptop at a wooden desk, notebook and phone nearby" width="1400" height="1000" fetchpriority="high" />
   </div>
 </section>
 
 <section id="work">
-  <h2 class="h2">Selected work</h2>
+  <h2 class="h2 reveal">Selected work</h2>
   <div class="grid">
 
-    <div class="card">
+    <div class="card reveal">
       <div class="tag">AI pipeline · Solo build</div>
       <h3>FrameChain — URL to finished video</h3>
-      <p>A nine-stage pipeline that reads a website and produces a hero background video: brief, storyboard, shot plan, keyframes, motion, assembly, export. Sole designer and developer.</p>
+      <p>A nine-stage pipeline that reads a website and produces a hero background video: site analysis, brief, story, refinement, locked shot plan, keyframes, motion, assembly, export. Sole designer and developer.</p>
       <div class="stack">
         <span class="chip">Next.js 16</span><span class="chip">React 19</span>
         <span class="chip">TypeScript</span><span class="chip">Claude API</span>
@@ -116,7 +189,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card reveal">
       <div class="tag">Mobile · iOS + Android</div>
       <h3>SkyPorter — Flutter marketplace</h3>
       <p>Peer-to-peer baggage-sharing marketplace. 28 screens, two multi-step listing flows, in-app chat, push notifications. Designed the whole thing and wrote most of the code.</p>
@@ -126,7 +199,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card reveal">
       <div class="tag">AI product · Web client</div>
       <h3>Reno Studio — renovation preview</h3>
       <p>Upload a photo, describe a change, get a photorealistic preview. I own the web client: guided studio flow, stone→color→pattern material picker across two supplier catalogs, provider toggle.</p>
@@ -136,7 +209,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card reveal">
       <div class="tag">Client sites · Production</div>
       <h3>Commercial marketing sites</h3>
       <p>Designed and built production sites for Altin Construction, Altin Landscaping, and EliteViewGlass — on Cloudflare Workers with D1 database migrations.</p>
@@ -146,7 +219,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card reveal">
       <div class="tag">E-commerce · UX + Brand</div>
       <h3>Ehsan Foods — site UX & visual system</h3>
       <p>Owned UX improvements on the e-commerce site — simplified browse and checkout, aligned visual identity across web, packaging, and social.</p>
@@ -156,10 +229,10 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card reveal">
       <div class="tag">Fintech · 10 years</div>
       <h3>Mofid — brokerage & trading platform</h3>
-      <p>Ten years designing web and mobile interfaces for an online brokerage — order entry, portfolio views, market data, and a concept-to-final redesign of account sign-up whose patterns were adopted platform-wide.</p>
+      <p>Ten years designing web and mobile interfaces for an online brokerage — including its website and a concept-to-final redesign of sign-in and registration whose patterns were adopted platform-wide.</p>
       <div class="stack">
         <span class="chip">Interaction design</span>
         <span class="chip">Typography</span>
@@ -171,83 +244,160 @@
 </section>
 
 <section id="case-studies">
-  <h2 class="h2">Case studies</h2>
+  <h2 class="h2 reveal">Case studies</h2>
 
-  <div class="case">
-    <h3>FrameChain — turning a URL into a finished video</h3>
-    <div class="meta">Trimo Tech · Product Designer & Front-End Developer · Aug – Sep 2026 · Solo</div>
-    <div class="row"><div class="label">Problem</div><div class="body">Small companies want a motion hero for their landing page but can't justify a video production budget. Generic stock footage doesn't match their brand, and generative video tools produce disconnected clips with no narrative thread.</div></div>
-    <div class="row"><div class="label">Approach</div><div class="body">Designed a nine-stage pipeline that reads the company's own site and reasons its way to a shot list before generating anything: scrape → creative brief → story → locked chain plan → keyframes → motion → assembly → export. The first five stages are free and reversible, so you can iterate on the concept before spending a cent. Each generated frame carries visual continuity forward into the next, which is what keeps the clips reading as one film instead of six unrelated shots.</div></div>
-    <div class="row"><div class="label">Decision</div><div class="body">Put every AI provider behind one interface with a fixture implementation as the default. The whole flow runs offline, for free, with a complete worked example — so development and demos never touch a paid API. Naming a paid provider has to be explicit; an API key sitting in the environment isn't treated as permission to spend.</div></div>
-    <div class="row"><div class="label">Outcome</div><div class="body">Working end-to-end product. Cost is quoted before every paid step and runs that would exceed a configured cap are blocked outright — which matters when a single multi-stage job can chain a dozen billable generations.</div></div>
-    <div class="row"><div class="label">Stack</div><div class="body">Next.js 16 · React 19 · TypeScript · Prisma · Zod · Anthropic Claude · KIE · fal · Tailwind</div></div>
+  <div class="case reveal">
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet">
+        <rect width="480" height="360" fill="#17171b"/>
+        <path d="M40 280 L100 220 L160 250 L220 170 L280 200 L340 120 L400 150 L440 90"
+          fill="none" stroke="#ff7a59" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+        <g fill="#0e0e10" stroke="#7ab7ff" stroke-width="2">
+          <circle cx="40" cy="280" r="8"/><circle cx="100" cy="220" r="8"/>
+          <circle cx="160" cy="250" r="8"/><circle cx="220" cy="170" r="8"/>
+          <circle cx="280" cy="200" r="8"/><circle cx="340" cy="120" r="8"/>
+          <circle cx="400" cy="150" r="8"/><circle cx="440" cy="90" r="8"/>
+        </g>
+        <circle cx="440" cy="90" r="4" fill="#ff7a59"/>
+      </svg>
+    </div>
+    <div class="case-content">
+      <h3>FrameChain — turning a URL into a finished video</h3>
+      <div class="meta">Trimo Tech · Product Designer & Front-End Developer · Aug – Sep 2026 · Solo</div>
+      <div class="row"><div class="label">Problem</div><div class="body">Small companies want a motion hero for their landing page but can't justify a video production budget. Generic stock footage doesn't match their brand, and generative video tools produce disconnected clips with no narrative thread.</div></div>
+      <div class="row"><div class="label">Approach</div><div class="body">Designed a nine-stage pipeline that reads the company's own site and reasons its way to a shot list before generating anything: scrape → creative brief → story → refinement → locked chain plan → keyframes → motion → assembly → export. The first five stages are free and reversible, so you can iterate on the concept before spending a cent. Each generated frame carries visual continuity forward into the next, which is what keeps the clips reading as one film instead of six unrelated shots.</div></div>
+      <div class="row"><div class="label">Decision</div><div class="body">Put every AI provider behind one interface with a fixture implementation as the default. The whole flow runs offline, for free, with a complete worked example — so development and demos never touch a paid API. Naming a paid provider has to be explicit; an API key sitting in the environment isn't treated as permission to spend.</div></div>
+      <div class="row"><div class="label">Outcome</div><div class="body">Working end-to-end product. Cost is quoted before every paid step and runs that would exceed a configured cap are blocked outright — which matters when a single multi-stage job can chain a dozen billable generations.</div></div>
+      <div class="row"><div class="label">Stack</div><div class="body">Next.js 16 · React 19 · TypeScript · Prisma · Zod · Anthropic Claude · KIE · Tailwind</div></div>
+    </div>
   </div>
 
-  <div class="case">
-    <h3>SkyPorter — designing a two-sided marketplace for mobile</h3>
-    <div class="meta">Flutter · iOS & Android · Apr – Jun 2026 · Primary designer and developer</div>
-    <div class="row"><div class="label">Problem</div><div class="body">Travellers fly with unused baggage allowance; senders need cheap routes for parcels. Matching them means collecting a lot of structured detail — route, dates, weight, item type, budget — from two different user types without the form fatigue that kills marketplace signups.</div></div>
-    <div class="row"><div class="label">Approach</div><div class="body">Split each side into a five-step guided flow rather than one long form, with drafts saved between steps so nobody loses progress. Designed 28 screens covering both flows plus explore, matching, in-app chat, notifications, saved listings, and profile. Built a weight and fair-pricing helper so users get an honest estimate before they commit to a listing.</div></div>
-    <div class="row"><div class="label">Decision</div><div class="body">Native-feeling tab navigation and platform-appropriate sign-in (Google on Android, Apple on iOS) rather than a single cross-platform compromise. Marketplace trust depends on the app feeling native on the device you already trust.</div></div>
-    <div class="row"><div class="label">Outcome</div><div class="body">Complete iOS and Android app built in Flutter, wired to a Node.js REST API with push notifications through Firebase. I wrote 53 of the 64 commits on the mobile client.</div></div>
-    <div class="row"><div class="label">Stack</div><div class="body">Flutter · Dart · Firebase Cloud Messaging · Google & Apple Sign-In · REST</div></div>
+  <div class="case reveal">
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet">
+        <rect width="480" height="360" fill="#17171b"/>
+        <path d="M70 260 Q 240 40 410 140" fill="none" stroke="#7ab7ff" stroke-width="2"
+          stroke-dasharray="2 10" stroke-linecap="round" opacity="0.7"/>
+        <circle cx="70" cy="260" r="10" fill="#0e0e10" stroke="#ff7a59" stroke-width="2"/>
+        <circle cx="410" cy="140" r="10" fill="#0e0e10" stroke="#ff7a59" stroke-width="2"/>
+        <rect x="196" y="150" width="88" height="150" rx="16" fill="#0e0e10" stroke="#26262d" stroke-width="2"/>
+        <rect x="212" y="172" width="56" height="90" rx="4" fill="none" stroke="#7ab7ff" stroke-width="1.5" opacity="0.6"/>
+        <rect x="228" y="270" width="24" height="4" rx="2" fill="#ff7a59"/>
+      </svg>
+    </div>
+    <div class="case-content">
+      <h3>SkyPorter — designing a two-sided marketplace for mobile</h3>
+      <div class="meta">Flutter · iOS & Android · Apr – Jun 2026 · Primary designer and developer</div>
+      <div class="row"><div class="label">Problem</div><div class="body">Travellers fly with unused baggage allowance; senders need cheap routes for parcels. Matching them means collecting a lot of structured detail — route, dates, weight, item type, budget — from two different user types without the form fatigue that kills marketplace signups.</div></div>
+      <div class="row"><div class="label">Approach</div><div class="body">Split each side into a five-step guided flow rather than one long form, with unfinished listings saved as drafts so nobody loses progress. Designed 28 screens covering both flows plus explore, matching, in-app chat, notifications, saved listings, and profile. Built a weight-based cost estimate so senders see an estimated total before they commit to a listing.</div></div>
+      <div class="row"><div class="label">Decision</div><div class="body">Native-feeling tab navigation and platform-appropriate sign-in (Apple on iOS, Google on both) rather than a single cross-platform compromise. Marketplace trust depends on the app feeling native on the device you already trust.</div></div>
+      <div class="row"><div class="label">Outcome</div><div class="body">Complete iOS and Android app built in Flutter, wired to a Node.js REST API with push notifications through Firebase. I wrote 53 of the 64 commits on the mobile client.</div></div>
+      <div class="row"><div class="label">Stack</div><div class="body">Flutter · Dart · Firebase Cloud Messaging · Google & Apple Sign-In · REST</div></div>
+    </div>
   </div>
 
-  <div class="case">
-    <h3>Reno Studio — making an AI image tool usable by homeowners</h3>
-    <div class="meta">Trimo Tech · Web client owner · May 2026 – present</div>
-    <div class="row"><div class="label">Problem</div><div class="body">The underlying model can produce a photorealistic renovation preview, but only if the prompt is precise. Homeowners don't write precise prompts — they say "make my driveway nicer." The gap between what the user can express and what the model needs was the whole product problem.</div></div>
-    <div class="row"><div class="label">Approach</div><div class="body">Replaced the free-text prompt box with a guided flow that walks the user through real supplier catalogs — stone, then colour, then laying pattern — and composes the technical prompt from those picks behind the scenes. Users are choosing products they can actually buy, not describing an aesthetic. Generalized it to handle two suppliers with different catalog structures, and built the step count to be dynamic so new renovation categories can add their own steps.</div></div>
-    <div class="row"><div class="label">Decision</div><div class="body">Serve catalog imagery from object storage rather than the repo. Hundreds of product swatches in git made checkouts slow and bloated history — moving them to R2 kept the repo light and made catalog updates a data change rather than a deploy.</div></div>
-    <div class="row"><div class="label">Outcome</div><div class="body">Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</div></div>
-    <div class="row"><div class="label">Stack</div><div class="body">Next.js · TypeScript · Google Gemini · Cloudflare R2 · Vitest · Biome</div></div>
+  <div class="case reveal">
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet">
+        <rect width="480" height="360" fill="#17171b"/>
+        <g stroke="#26262d" stroke-width="2">
+          <rect x="60" y="60" width="100" height="100" rx="14" fill="#0e0e10"/>
+          <rect x="190" y="60" width="100" height="100" rx="14" fill="#3a2a22"/>
+          <rect x="320" y="60" width="100" height="100" rx="14" fill="#0e0e10"/>
+          <rect x="60" y="190" width="100" height="100" rx="14" fill="#1c2a38"/>
+          <rect x="190" y="190" width="100" height="100" rx="14" fill="#ff7a59"/>
+          <rect x="320" y="190" width="100" height="100" rx="14" fill="#0e0e10"/>
+        </g>
+        <circle cx="370" cy="110" r="18" fill="none" stroke="#7ab7ff" stroke-width="2"/>
+        <circle cx="110" cy="240" r="18" fill="none" stroke="#7ab7ff" stroke-width="2" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="case-content">
+      <h3>Reno Studio — making an AI image tool usable by homeowners</h3>
+      <div class="meta">Trimo Tech · Web client owner · May 2026 – present</div>
+      <div class="row"><div class="label">Problem</div><div class="body">The underlying model can produce a photorealistic renovation preview, but only if the prompt is precise. Homeowners don't write precise prompts — they say "make my driveway nicer." The gap between what the user can express and what the model needs was the whole product problem.</div></div>
+      <div class="row"><div class="label">Approach</div><div class="body">Replaced the free-text prompt box with a guided flow that walks the user through real supplier catalogs — stone, then colour, then laying pattern — and composes the technical prompt from those picks behind the scenes. Users are choosing products they can actually buy, not describing an aesthetic. Generalized it to handle two suppliers with different catalog structures, and built the step count to be dynamic so new renovation categories can add their own steps.</div></div>
+      <div class="row"><div class="label">Decision</div><div class="body">Serve catalog imagery from object storage rather than the repo. More than a hundred swatch, hero, and laying-pattern images (about 17 MB) were about to go into the shared git history — moving them to R2 and stripping them out before the first push kept the repo to code, not binaries.</div></div>
+      <div class="row"><div class="label">Outcome</div><div class="body">Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</div></div>
+      <div class="row"><div class="label">Stack</div><div class="body">Next.js · TypeScript · Google Gemini · Cloudflare R2 · Vitest · Biome</div></div>
+    </div>
   </div>
 
-  <div class="case">
-    <h3>Redesigning the Ehsan Foods e-commerce experience</h3>
-    <div class="meta">Ehsan Foods · UX & Graphic Designer · 2023–2024</div>
-    <div class="row"><div class="label">Problem</div><div class="body">Customers struggled with product discovery on the existing site, and brand expression was inconsistent between the web store, packaging, and social.</div></div>
-    <div class="row"><div class="label">Approach</div><div class="body">Audited the browse and checkout flows, simplified the category structure, and tightened typography and spacing. Built a single visual system that flexed across web, packaging, and social. Ran feedback loops with the marketing and product teams to land tight visual coherence.</div></div>
-    <div class="row"><div class="label">Outcome</div><div class="body">A faster, more intuitive customer journey. Visual identity now consistent across every touchpoint — web, in-package, and social campaigns.</div></div>
-    <div class="row"><div class="label">Stack</div><div class="body">Figma · Adobe CC · Web + print production</div></div>
+  <div class="case reveal">
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet">
+        <rect width="480" height="360" fill="#17171b"/>
+        <g stroke-width="2">
+          <rect x="70" y="130" width="180" height="130" rx="14" transform="rotate(-6 70 130)" fill="#0e0e10" stroke="#26262d"/>
+          <rect x="130" y="110" width="180" height="130" rx="14" transform="rotate(3 130 110)" fill="#1a1414" stroke="#26262d"/>
+          <rect x="210" y="150" width="180" height="130" rx="14" transform="rotate(-2 210 150)" fill="#0e0e10" stroke="#ff7a59"/>
+        </g>
+        <circle cx="300" cy="215" r="5" fill="#ff7a59"/>
+        <circle cx="320" cy="215" r="5" fill="#7ab7ff"/>
+        <circle cx="340" cy="215" r="5" fill="#9a9aa3"/>
+      </svg>
+    </div>
+    <div class="case-content">
+      <h3>Redesigning the Ehsan Foods e-commerce experience</h3>
+      <div class="meta">Ehsan Foods · UX Designer & Graphic Designer · 2023–2024</div>
+      <div class="row"><div class="label">Problem</div><div class="body">Customers struggled with product discovery on the existing site, and brand expression was inconsistent between the web store, packaging, and social.</div></div>
+      <div class="row"><div class="label">Approach</div><div class="body">Audited the browse and checkout flows, simplified the category structure, and tightened typography and spacing. Built a single visual system that flexed across web, packaging, and social. Ran feedback loops with the marketing and product teams to land tight visual coherence.</div></div>
+      <div class="row"><div class="label">Outcome</div><div class="body">A faster, more intuitive customer journey. Visual identity now consistent across every touchpoint — web, in-package, and social campaigns.</div></div>
+      <div class="row"><div class="label">Stack</div><div class="body">Figma · Adobe CC · Web + print production</div></div>
+    </div>
   </div>
 
-  <div class="case">
-    <h3>Designing for retail investors at Mofid</h3>
-    <div class="meta">Mofid · UI/UX Designer · 2013–2023 · Online brokerage &amp; trading platform</div>
-    <div class="row"><div class="label">Problem</div><div class="body">The broker's account creation flow was friction-heavy and visually inconsistent with the rest of the platform, hurting completion.</div></div>
-    <div class="row"><div class="label">Approach</div><div class="body">Concept-to-final redesign of the authentication experience — refined typography hierarchy, interaction patterns, and reduced the steps to first usable account state. Documented patterns for adoption across the broader platform.</div></div>
-    <div class="row"><div class="label">Outcome</div><div class="body">Patterns from this work were adopted across the platform. Across a ten-year tenure I designed web and mobile interfaces spanning order entry, portfolio views, and market data — translating dense financial workflows into screens retail investors could actually use.</div></div>
-    <div class="row"><div class="label">Stack</div><div class="body">Figma · Typography systems · Interaction design · Financial UX</div></div>
+  <div class="case reveal">
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet">
+        <rect width="480" height="360" fill="#17171b"/>
+        <line x1="50" y1="300" x2="50" y2="60" stroke="#26262d" stroke-width="2"/>
+        <line x1="50" y1="300" x2="430" y2="300" stroke="#26262d" stroke-width="2"/>
+        <path d="M50 260 L130 240 L210 190 L290 210 L370 120 L430 90"
+          fill="none" stroke="#ff7a59" stroke-width="2.5" stroke-linecap="round"/>
+        <g fill="#7ab7ff">
+          <circle cx="130" cy="240" r="4"/><circle cx="210" cy="190" r="4"/>
+          <circle cx="290" cy="210" r="4"/><circle cx="370" cy="120" r="4"/>
+        </g>
+        <circle cx="430" cy="90" r="6" fill="#0e0e10" stroke="#ff7a59" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="case-content">
+      <h3>Designing for retail investors at Mofid</h3>
+      <div class="meta">Mofid · UI/UX Designer · 2013–2023 · Online brokerage &amp; trading platform</div>
+      <div class="row"><div class="label">Problem</div><div class="body">The broker's account creation flow was friction-heavy and visually inconsistent with the rest of the platform, hurting completion.</div></div>
+      <div class="row"><div class="label">Approach</div><div class="body">Concept-to-final redesign of the authentication experience — refined typography hierarchy, interaction patterns, and reduced the steps to first usable account state. Documented patterns for adoption across the broader platform.</div></div>
+      <div class="row"><div class="label">Outcome</div><div class="body">Patterns from this work were adopted across the platform. Across a ten-year tenure I designed web and mobile interfaces for the brokerage, including its website.</div></div>
+      <div class="row"><div class="label">Stack</div><div class="body">Figma · Typography systems · Interaction design · Financial UX</div></div>
+    </div>
   </div>
 
-  <p class="placeholder-note">Add screenshots: these case studies read well but land much harder with visuals. Drop 2–3 images per project — screens, before/after, a flow diagram — and this becomes a portfolio rather than a written summary.</p>
 </section>
 
 <section id="skills">
-  <h2 class="h2">Skills</h2>
+  <h2 class="h2 reveal">Skills</h2>
   <div class="skills">
-    <div class="group">
+    <div class="group reveal">
       <h4>Design</h4>
       <p>Figma, design systems, prototyping, user research, usability testing, wireframing, interaction & visual design, accessibility (WCAG)</p>
     </div>
-    <div class="group">
+    <div class="group reveal">
       <h4>Front-End</h4>
       <p>HTML5, CSS3, Tailwind, JavaScript, TypeScript, React, Next.js, component architecture, responsive & mobile-first</p>
     </div>
-    <div class="group">
+    <div class="group reveal">
       <h4>Mobile</h4>
       <p>Flutter, Dart, iOS & Android, cross-platform UI, Firebase Cloud Messaging, Google & Apple Sign-In</p>
     </div>
-    <div class="group">
+    <div class="group reveal">
       <h4>AI integration</h4>
       <p>Anthropic Claude API, OpenAI, Google Gemini, prompt engineering, provider abstraction, text-to-image and text-to-video pipelines, structured output validation, cost controls</p>
     </div>
-    <div class="group">
+    <div class="group reveal">
       <h4>Tooling & platform</h4>
       <p>Git, Vitest, Prisma, SQLite, REST API integration, Cloudflare Workers, Cloudflare R2, D1</p>
     </div>
-    <div class="group">
+    <div class="group reveal">
       <h4>Tools</h4>
       <p>Cursor, Claude Code, GitHub Copilot, Adobe Photoshop, Illustrator, Premiere, photography & videography</p>
     </div>
@@ -255,11 +405,13 @@
 </section>
 
 <section id="about">
-  <h2 class="h2">About</h2>
-  <p style="max-width:760px; color:var(--muted); font-size:16px;">
+  <h2 class="h2 reveal">About</h2>
+  <p class="reveal">
     I'm a UI/UX designer and front-end developer based in the Toronto area. I've spent over a decade moving between Figma and code — ten of those years designing online brokerage and stock trading interfaces, and throughout, designing the screens then shipping the front-end myself. Most recently that's meant building AI-powered products at Trimo Tech: pipelines that generate video, tools that turn a photo into a renovation preview, and the interface work that makes any of it usable by a normal person. I care about clean visual systems, fast loading, and accessible defaults. Bilingual (English / Persian), Canadian citizen, available for mid-level UI/UX or front-end roles — remote anywhere in Canada or the US, or hybrid/onsite in the GTA.
   </p>
 </section>
+
+</main>
 
 <footer id="contact">
   <div class="row">
@@ -275,5 +427,21 @@
 </footer>
 
 </div>
+<script>
+  // Progressive-enhancement scroll reveal. Content is fully visible with no JS
+  // or with prefers-reduced-motion; this only adds a fade/slide-in on top.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
+</script>
 </body>
 </html>
