@@ -118,7 +118,7 @@ This is a résumé-adjacent document used in real job applications. **Factual er
 
 **Education:** UX/UI Design Certificate, University of Toronto School of Continuing Studies, Jun 2023.
 **Languages:** English (professional), Persian (native). Canadian citizen.
-**Contact:** mjhp29@yahoo.com · linkedin.com/in/javadhakimpanah
+**Contact:** javadhp@outlook.com · linkedin.com/in/javadhakimpanah
 
 ### Projects featured on the site
 

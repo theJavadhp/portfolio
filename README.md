@@ -38,4 +38,4 @@ Drag this folder onto https://app.netlify.com/drop
 
 ## Contact
 
-mjhp29@yahoo.com · [linkedin.com/in/javadhakimpanah](https://www.linkedin.com/in/javadhakimpanah)
+javadhp@outlook.com · [linkedin.com/in/javadhakimpanah](https://www.linkedin.com/in/javadhakimpanah)
