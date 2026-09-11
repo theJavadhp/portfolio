@@ -83,6 +83,11 @@
     --line: #154a9e; --fill: #dceb9c; --pen: #4c6011; --rule: #dbe8c8; --chip: #c7d9a8;
   }
 
+  /* Theme switch: cross-fade colors instead of snapping. Off under reduced motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    * { transition: background-color .22s ease, color .22s ease, border-color .22s ease, fill .22s ease, stroke .22s ease, box-shadow .22s ease; }
+  }
+
   * { box-sizing: border-box; }
   html { background: var(--frame); scroll-padding-top: calc(var(--topbar) + 24px); }
   body {
