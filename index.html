@@ -21,6 +21,15 @@
 <meta name="twitter:description" content="Mid-level UI/UX designer and front-end developer in Toronto. Figma, React, Next.js, Flutter, and AI-powered product features." />
 <meta name="twitter:image" content="https://thejavadhp.github.io/portfolio/images/og-card.png" />
 <script>document.documentElement.classList.add('js');</script>
+<script>
+  // Apply a saved theme before first paint, so there's no flash of the wrong colors.
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t && t !== 'riso') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
 <style>
   /* Schibsted Grotesk is self-hosted (SIL OFL, see fonts/OFL.txt): one variable file, latin subset. */
   @font-face {
@@ -48,6 +57,30 @@
     --maxw: 1140px;
     --gutter: clamp(20px, 5vw, 72px);
     --topbar: 84px;
+  }
+
+  /* Alternate palettes for the theme picker. Same 9 tokens, all checked at
+     4.5:1+ against --paper for ink/slate/line/pen (see git history for the
+     contrast script). --fill/--rule/--chip are decorative only. */
+  [data-theme="teal-coral"] {
+    --paper: #f2f9f8; --frame: #ffffff; --ink: #0f2e2e; --slate: #3d5e5e;
+    --line: #b8441f; --fill: #bfe6dc; --pen: #1a6e66; --rule: #d3e8e4; --chip: #b9d9d3;
+  }
+  [data-theme="purple-pink"] {
+    --paper: #f8f6fb; --frame: #ffffff; --ink: #241543; --slate: #544470;
+    --line: #a81f68; --fill: #ddc8f0; --pen: #5c3691; --rule: #ded3ea; --chip: #c9b8dc;
+  }
+  [data-theme="sand-terracotta"] {
+    --paper: #faf6f0; --frame: #ffffff; --ink: #40230f; --slate: #6e5138;
+    --line: #a83f18; --fill: #f0d9b8; --pen: #8a5a12; --rule: #ecdcc5; --chip: #ddc7a3;
+  }
+  [data-theme="navy-mint"] {
+    --paper: #f2f8f7; --frame: #ffffff; --ink: #0b2536; --slate: #375868;
+    --line: #0d6e60; --fill: #b8e8dc; --pen: #2b6f96; --rule: #d3e6e2; --chip: #bcd9d0;
+  }
+  [data-theme="blue-lime"] {
+    --paper: #f6f9ee; --frame: #ffffff; --ink: #122a52; --slate: #425572;
+    --line: #154a9e; --fill: #dceb9c; --pen: #4c6011; --rule: #dbe8c8; --chip: #c7d9a8;
   }
 
   * { box-sizing: border-box; }
@@ -133,15 +166,31 @@
   .hire svg { width: 30px; height: 27px; }
   .menu-btn { display: none; background: none; border: 0; padding: 10px 4px; cursor: pointer; }
 
+  .theme-picker { display: flex; align-items: center; gap: 6px; margin-left: 18px; padding-left: 18px; border-left: 1px solid var(--rule); }
+  .theme-dot {
+    width: 16px; height: 16px; padding: 0; border-radius: 50%; cursor: pointer;
+    border: 2px solid var(--frame); box-shadow: 0 0 0 1px var(--chip);
+    background: conic-gradient(var(--dot-a) 0deg 180deg, var(--dot-b) 180deg 360deg);
+  }
+  .theme-dot[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--frame), 0 0 0 4px var(--dot-a); }
+  .theme-dot:hover { box-shadow: 0 0 0 2px var(--dot-a); }
+
   @media (max-width: 920px) {
     :root { --topbar: 68px; }
     .brand-role { display: none; }
     .topbar .wrap { flex-wrap: wrap; }
     #site-nav { order: 3; width: 100%; margin-left: 0; overflow-x: auto; padding-bottom: 10px; }
     .hire { margin-left: auto; }
+    .theme-picker { margin-left: 12px; padding-left: 12px; }
     .js .topbar .wrap { flex-wrap: nowrap; }
     .js .menu-btn { display: inline-block; margin-left: auto; }
     .js .hire { margin-left: 8px; }
+    .js .theme-picker { gap: 5px; margin-left: 8px; padding-left: 8px; }
+    .js .theme-dot { width: 14px; height: 14px; }
+  }
+  @media (max-width: 400px) {
+    .js .theme-picker { gap: 4px; margin-left: 6px; padding-left: 6px; }
+    .js .theme-dot { width: 12px; height: 12px; }
     .js #site-nav {
       display: none; position: absolute; top: calc(100% - 4px); right: var(--gutter); left: auto;
       width: min(260px, calc(100% - 2 * var(--gutter)));
@@ -317,10 +366,10 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="3.5" height="10" fill="#bfdcf5" />
+      <rect width="3.5" height="10" fill="var(--fill)" />
     </pattern>
     <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
-      <circle cx="4" cy="4" r="2.2" fill="#bfdcf5" />
+      <circle cx="4" cy="4" r="2.2" fill="var(--fill)" />
     </pattern>
   </defs>
 </svg>
@@ -354,6 +403,14 @@
       </svg>
       Hire me
     </a>
+    <div class="theme-picker" role="group" aria-label="Color theme">
+      <button type="button" class="theme-dot" data-theme-choice="riso" style="--dot-a:#c93d1c;--dot-b:#bfdcf5" aria-pressed="true" aria-label="Riso (default)"></button>
+      <button type="button" class="theme-dot" data-theme-choice="teal-coral" style="--dot-a:#b8441f;--dot-b:#bfe6dc" aria-pressed="false" aria-label="Modern Teal & Coral"></button>
+      <button type="button" class="theme-dot" data-theme-choice="purple-pink" style="--dot-a:#a81f68;--dot-b:#ddc8f0" aria-pressed="false" aria-label="Purple & Pink Glow"></button>
+      <button type="button" class="theme-dot" data-theme-choice="sand-terracotta" style="--dot-a:#a83f18;--dot-b:#f0d9b8" aria-pressed="false" aria-label="Warm Sand & Terracotta"></button>
+      <button type="button" class="theme-dot" data-theme-choice="navy-mint" style="--dot-a:#0d6e60;--dot-b:#b8e8dc" aria-pressed="false" aria-label="Navy & Mint"></button>
+      <button type="button" class="theme-dot" data-theme-choice="blue-lime" style="--dot-a:#154a9e;--dot-b:#dceb9c" aria-pressed="false" aria-label="Electric Blue & Lime"></button>
+    </div>
   </div>
 </header>
 
@@ -756,6 +813,33 @@
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); btn.focus(); }
+    });
+  })();
+
+  // Theme picker: swaps the --paper/--ink/etc. custom properties via data-theme,
+  // remembers the choice, and keeps mobile browser chrome (theme-color) in sync.
+  (function () {
+    var dots = document.querySelectorAll('.theme-dot');
+    if (!dots.length) return;
+    var meta = document.querySelector('meta[name="theme-color"]');
+    var current = document.documentElement.getAttribute('data-theme') || 'riso';
+
+    function setActive(name) {
+      dots.forEach(function (d) {
+        d.setAttribute('aria-pressed', String(d.dataset.themeChoice === name));
+      });
+    }
+    function apply(name) {
+      if (name === 'riso') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme', name);
+      setActive(name);
+      if (meta) meta.setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--paper').trim());
+      try { localStorage.setItem('theme', name); } catch (e) {}
+    }
+
+    setActive(current);
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () { apply(d.dataset.themeChoice); });
     });
   })();
 
