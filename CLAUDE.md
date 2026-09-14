@@ -20,7 +20,7 @@ The site's job is to get him interviews. Every change should be evaluated agains
 
 Do not break these without asking:
 
-1. **Single self-contained `index.html`.** All CSS is inline in `<style>` in the head. No separate stylesheets, no JS files, no build step, no framework, no npm dependencies. The whole site must work by opening the file.
+1. **Single self-contained `index.html`.** All CSS is inline in `<style>` in the head. No separate stylesheets, no JS files, no build step, no framework, no npm dependencies. The whole site must work by opening the file. **Exception (Sep 14, 2026):** `work/*.html` — one dedicated page per case study holding a screenshot gallery (see below). Each of these pages is itself self-contained (own inline `<style>`, no shared CSS/JS file) — the exception is "more than one HTML file," not "no longer self-contained."
 2. **No external runtime dependencies.** No CDN links for fonts, icons, or libraries. If you need an icon, inline the SVG. **One approved exception (Sep 10, 2026):** Schibsted Grotesk is self-hosted from `fonts/schibsted-grotesk-latin.woff2` (one ~46KB variable file covering weights 400–900, latin subset, SIL OFL — keep `fonts/OFL.txt` beside it) and used for all text. It replaced Bitter the same day at Javad's request ("like Bricolage Grotesque, but more formal"). Don't add a second font or swap it without asking.
 3. **`.nojekyll` must stay.** It stops GitHub Pages running Jekyll.
 4. **`01_Resume_Javad_Hakimpanah_ATS.pdf` must stay at repo root** — the hero links to it relatively. Don't rename or move it.
@@ -33,15 +33,25 @@ Do not break these without asking:
 ```
 portfolio/
 ├── index.html                            # the entire site (CSS, inline SVG art, small script)
+├── work/                                 # one page per case study: full case text + screenshot gallery
+│   ├── framechain.html
+│   ├── skyporter.html
+│   ├── reno-studio.html
+│   ├── ehsan-foods.html
+│   ├── mofid.html
+│   └── client-sites.html
 ├── 01_Resume_Javad_Hakimpanah_ATS.pdf    # linked from the intro and footer
 ├── fonts/schibsted-grotesk-latin.woff2   # self-hosted site font
 ├── fonts/OFL.txt                         # its license (required by the OFL)
 ├── images/og-card.png                    # Open Graph / Twitter share image (1200×630)
+├── images/                               # also holds case-study screenshots (see below)
 ├── .nojekyll                             # required for GitHub Pages
 ├── .gitignore
 ├── README.md                             # deploy instructions
 └── CLAUDE.md                             # this file
 ```
+
+**Case-study screenshots (added Sep 14, 2026):** each case study on `index.html` stays illustration-only (flat riso SVG, no real screenshots inline — a photorealistic device mockup was tried inline and didn't match the site's flat aesthetic) and ends with a "View screenshots →" link to `work/<slug>.html`. That page duplicates the full Problem/Approach/Decision/Outcome/Stack text and holds a `.gallery` grid of real screenshots, framed with a thin `--rule` border, no drop shadow — same treatment as any other screenshot per the guidance below, device mockups included if that's what's available. A project with no screenshots yet shows a dashed-border "Screenshots coming soon" placeholder (see `work/framechain.html`, `reno-studio.html`, `ehsan-foods.html`) — Javad is adding more over time; just append `<img>` tags to that page's `.gallery` div, no other changes needed. Current screenshots: Mofid (real sign-in screen), SkyPorter (real screen composited into an iPhone mockup — mockup style is fine *inside* a work/ gallery, just not inline on the main page), and the client-sites case study (live captures of altinlandscaping.com and eliteviewglass.com homepages).
 
 ---
 
@@ -143,21 +153,20 @@ AI home-renovation preview: upload a photo, describe a change, get a photorealis
 
 ## Current gaps — prioritized backlog
 
-**1. No real product screenshots. Still the biggest problem.**
-Each case study now has a small line illustration (Sep 10, 2026), which breaks up the text, but illustrations aren't evidence of shipped work — a reviewer still can't see a single real screen. Portfolio review is where mid-level designers most often lose offers. Available source material on his machine:
+**1. Real product screenshots — in progress, most projects still missing.**
+Solved for Mofid (real sign-in screenshot, sourced from an old Framer portfolio at javadhp.framer.website), SkyPorter (a real screen composited into an iPhone mockup), and the client-sites case study (live captures of altinlandscaping.com and eliteviewglass.com) — see `work/*.html` above. Still open: **FrameChain, Reno Studio, and Ehsan Foods** have no screenshots yet (their `work/*.html` pages show a "coming soon" placeholder). Checked Sep 14, 2026 — the previously-listed local source material turned out mostly unusable:
 
-- `~/workspace/baggage_share_mobile_app/flutter_01.png`, `flutter_02.png`, `baggae-share.png` — SkyPorter screenshots
-- `~/workspace/baggage_share_mobile_app/assets/images/` — app assets
-- `~/workspace/AltinConstruction/public/assets/images/` — 75 images
-- `~/workspace/AltinLandscaping/public/assets/images/` — 66 images
-- `~/workspace/EliteViewGlass/public/img/` + `public/assets/` — 86 images
-- FrameChain and Reno Studio have **no** exportable screenshots checked in — he'd need to capture those from a running instance.
+- `~/workspace/baggage_share_mobile_app/flutter_01.png` / `flutter_02.png` are **0-byte broken files**; `baggae-share.png` is just the app icon, not a screenshot. None of it was usable for SkyPorter — the real screenshot came from Javad directly instead.
+- `~/workspace/AltinConstruction/public/assets/images/`, `AltinLandscaping/public/assets/images/`, `EliteViewGlass/public/img/`+`public/assets/` are content/asset images (photos, icons), not screen captures of the built sites — the client-sites screenshots were captured live from the deployed sites instead, not from these folders.
+- FrameChain and Reno Studio still have **no** exportable screenshots anywhere — genuinely need capturing from a running instance or provided by Javad.
 
-If adding images: optimize aggressively (WebP, sized for display), add `loading="lazy"`, always set `alt`, and keep them in an `images/` folder with relative paths. A horizontal screenshot strip per case study would be the highest-value addition. Frame screenshots so they sit well on the light paper ground (a thin `--line` or `--rule` border, no drop shadows).
+When Javad sends more screenshots: optimize (resize + JPEG ~70-75 quality via `sips`, or better if available), add `loading="lazy"`, always set a factual `alt`, drop them in `images/` with relative paths, and append an `<img>` to the relevant `work/<slug>.html`'s `.gallery` div — nothing else needs to change. Device mockups (phone-in-hand, etc.) are fine inside a `work/` gallery; keep the main `index.html` case studies illustration-only.
 
 **2. Not yet checked on a real phone.** Verified in emulation (Sep 10, 2026) at true 390, 768, 1024 and 1440px widths — no horizontal overflow, menu works, focus order sane — but not on a physical iOS/Android device.
 
 **Done Sep 10, 2026:** case-study visual hierarchy (illustrations + sticky art), favicon, Open Graph / Twitter card, `.placeholder-note` removed, skip link, visible focus ring, reduced-motion support, and every text colour checked against WCAG AA (see the design-system table).
+
+**Done Sep 14, 2026:** "UX certificate coursework" section added (Simplist, Easy Travel, Fridge Friend — clearly labeled as coursework, not client work); "Production marketing sites for home-services clients" case study added; per-project `work/*.html` screenshot pages added (see above).
 
 ---
 
