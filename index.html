@@ -329,13 +329,14 @@
   .case:first-of-type { border-top: 0; padding-top: 8px; }
   .case-art { position: sticky; top: calc(var(--topbar) + var(--fw) + 32px); align-self: start; }
   .case-art svg { width: 100%; height: auto; overflow: visible; }
-  .case-shot { display: block; width: 100%; height: auto; margin-top: 18px; border: 1px solid var(--rule); border-radius: 6px; }
   .case h3 { font: 700 clamp(26px, 2.7vw, 36px)/1.14 var(--sans); letter-spacing: -0.022em; margin-bottom: 14px; max-width: 30ch; }
   .case > div > .meta { margin-bottom: 30px; }
   .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; }
   .facts dt { font: 700 16.5px/1.65 var(--sans); color: var(--ink); }
   .facts dd { font-size: 16.5px; line-height: 1.7; max-width: 64ch; }
   .facts dd .chips { padding-top: 3px; }
+  .case-more { margin-top: 24px; }
+  .case-more a { font-weight: 700; text-decoration-color: var(--line); }
   @media (max-width: 760px) {
     .case { grid-template-columns: 1fr; gap: 20px; }
     .case-art { position: static; max-width: 230px; }
@@ -628,12 +629,13 @@
         <dt>Outcome</dt><dd>Working end-to-end product. Cost is quoted before every paid step and runs that would exceed a configured cap are blocked outright — which matters when a single multi-stage job can chain a dozen billable generations.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Prisma</li><li>Zod</li><li>Anthropic Claude</li><li>KIE</li><li>Tailwind</li></ul></dd>
       </dl>
+      <p class="case-more"><a href="work/framechain.html">View screenshots →</a></p>
     </div>
   </article>
 
   <article id="skyporter" class="case">
-    <div class="case-art">
-      <svg viewBox="0 0 240 200" focusable="false" aria-hidden="true">
+    <div class="case-art" aria-hidden="true">
+      <svg viewBox="0 0 240 200" focusable="false">
         <defs>
           <rect id="sp-case" x="30" y="92" width="110" height="80" rx="10" />
           <path id="sp-pin" d="M206 98c-11-13-17-23-17-33a17 17 0 0 1 34 0c0 10-6 20-17 33z" />
@@ -646,7 +648,6 @@
         <use href="#sp-pin" class="rz-fill" x="-5" y="5" /><use href="#sp-pin" class="rz-line" />
         <circle class="rz-line thin" cx="206" cy="65" r="6" />
       </svg>
-      <img class="case-shot" src="images/skyporter-my-requests.jpg" alt="SkyPorter My Requests screen, held in hand" loading="lazy" width="1200" height="800">
     </div>
     <div>
       <h3>SkyPorter — designing a <span class="nowrap">two-sided</span> marketplace for mobile</h3>
@@ -658,6 +659,7 @@
         <dt>Outcome</dt><dd>Complete iOS and Android app built in Flutter, wired to a Node.js REST API with push notifications through Firebase. I wrote 53 of the 64 commits on the mobile client.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Flutter</li><li>Dart</li><li>Firebase Cloud Messaging</li><li>Google & Apple Sign-In</li><li>REST</li></ul></dd>
       </dl>
+      <p class="case-more"><a href="work/skyporter.html">View screenshots →</a></p>
     </div>
   </article>
 
@@ -696,13 +698,26 @@
         <dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd>
       </dl>
+      <p class="case-more"><a href="work/reno-studio.html">View screenshots →</a></p>
     </div>
   </article>
 
   <article id="client-sites" class="case">
-    <div class="case-art">
-      <img class="case-shot" src="images/case-altin-landscaping.jpg" alt="Altin Landscaping homepage, hero section" loading="lazy" width="1200" height="750">
-      <img class="case-shot" src="images/case-eliteviewglass.jpg" alt="EliteViewGlass homepage, split residential and commercial hero" loading="lazy" width="1200" height="750">
+    <div class="case-art" aria-hidden="true">
+      <svg viewBox="0 0 240 200" focusable="false">
+        <defs>
+          <rect id="cs-win" x="20" y="34" width="200" height="140" rx="10" />
+          <path id="cs-bar" d="M30 34h180a10 10 0 0 1 10 10v18H20V44a10 10 0 0 1 10-10z" />
+        </defs>
+        <use href="#cs-win" class="rz-base" /><use href="#cs-win" class="rz-fill" x="-7" y="7" />
+        <use href="#cs-win" class="rz-line" />
+        <use href="#cs-bar" class="rz-hatch" /><use href="#cs-bar" class="rz-line thin" />
+        <circle class="rz-solid" cx="42" cy="53" r="4" /><circle class="rz-line thin" cx="58" cy="53" r="4" /><circle class="rz-line thin" cx="74" cy="53" r="4" />
+        <rect class="rz-line thin" x="36" y="90" width="70" height="50" rx="4" />
+        <path class="rz-line thin" d="M116 96h88M116 112h88M116 128h60" />
+        <path class="pen-thin" d="M36 154h168" />
+        <g class="pen-node"><circle cx="60" cy="154" r="4" /><circle cx="120" cy="154" r="4" /><circle cx="180" cy="154" r="4" /></g>
+      </svg>
     </div>
     <div>
       <h3>Production marketing sites for home-services clients</h3>
@@ -713,6 +728,7 @@
         <dt>Outcome</dt><dd>Three production sites live for real clients.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Cloudflare Workers</li><li>D1</li><li>Responsive design</li></ul></dd>
       </dl>
+      <p class="case-more"><a href="work/client-sites.html">View screenshots →</a></p>
     </div>
   </article>
 
@@ -745,12 +761,13 @@
         <dt>Outcome</dt><dd>A faster, more intuitive customer journey. Visual identity now consistent across every touchpoint — web, in-package, and social campaigns.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Figma</li><li>Adobe CC</li><li>Web + print production</li></ul></dd>
       </dl>
+      <p class="case-more"><a href="work/ehsan-foods.html">View screenshots →</a></p>
     </div>
   </article>
 
   <article id="mofid" class="case">
-    <div class="case-art">
-      <svg viewBox="0 0 240 200" focusable="false" aria-hidden="true">
+    <div class="case-art" aria-hidden="true">
+      <svg viewBox="0 0 240 200" focusable="false">
         <defs>
           <rect id="mf-card" x="70" y="62" width="120" height="126" rx="12" />
         </defs>
@@ -764,7 +781,6 @@
         <rect class="rz-base" x="88" y="137" width="84" height="15" rx="7.5" /><rect class="rz-line thin" x="88" y="137" width="84" height="15" rx="7.5" />
         <rect class="rz-solid" x="88" y="161" width="84" height="16" rx="8" />
       </svg>
-      <img class="case-shot" src="images/mofid-signin.jpg" alt="Mofid sign-in screen on mobile, in Persian" loading="lazy" width="800" height="424">
     </div>
     <div>
       <h3>Designing for retail investors at Mofid</h3>
@@ -775,6 +791,7 @@
         <dt>Outcome</dt><dd>Patterns from this work were adopted across the platform. Across a ten-year tenure I designed web and mobile interfaces for the brokerage, including its website.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Figma</li><li>Typography systems</li><li>Interaction design</li><li>Financial UX</li></ul></dd>
       </dl>
+      <p class="case-more"><a href="work/mofid.html">View screenshots →</a></p>
     </div>
   </article>
 </section>
