@@ -42,6 +42,14 @@
   .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 40px); }
   .stop { color: var(--pen); }
 
+  /* full-bleed 21:9 header, sitting right inside the fixed frame */
+  .hero-shot { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+  .hero-shot-empty {
+    width: 100%; aspect-ratio: 21 / 9; display: flex; align-items: center; justify-content: center;
+    background: repeating-linear-gradient(-45deg, var(--fill) 0 3px, transparent 3px 8px);
+    color: var(--slate); font-size: 15px;
+  }
+
   .topbar { padding-block: 28px; }
   .back { display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--slate); }
   .back:hover { color: var(--line); }
@@ -52,7 +60,7 @@
   .meta { display: flex; flex-wrap: wrap; row-gap: 4px; padding: 0; list-style: none; margin: 0 0 36px -10px; overflow: hidden; font-size: 14px; line-height: 1.5; color: var(--slate); }
   .meta li { margin-left: -1px; padding-inline: 11px; background: linear-gradient(rgba(74,85,120,.45), rgba(74,85,120,.45)) left center / 1px .95em no-repeat; }
 
-  .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; margin-bottom: 48px; }
+  .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; }
   .facts dt { font: 700 16.5px/1.65 var(--sans); color: var(--ink); }
   .facts dd { font-size: 16.5px; line-height: 1.7; max-width: 64ch; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
@@ -62,17 +70,17 @@
     .facts dt:not(:first-child) { margin-top: 14px; }
   }
 
-  .gallery-head { font: 700 20px/1.3 var(--sans); letter-spacing: -0.01em; margin-bottom: 18px; }
+  .gallery-head { font: 700 20px/1.3 var(--sans); letter-spacing: -0.01em; margin: 48px 0 18px; }
   .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
   .gallery img { width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 8px; }
-  .gallery-empty { color: var(--slate); font-size: 15px; border: 1px dashed var(--chip); border-radius: 8px; padding: 28px; text-align: center; }
 
-  footer { padding-block: 32px; border-top: 1px solid var(--rule); margin-top: 56px; }
+  footer { padding-block: 32px; border-top: 1px solid var(--rule); margin-top: 24px; }
   footer a { font-weight: 600; }
   .foot-small { color: var(--slate); font-size: 13px; margin-top: 8px; }
 </style>
 </head>
 <body>
+<img class="hero-shot" src="../images/case-altin-landscaping.jpg" alt="Altin Landscaping homepage, hero section" width="1400" height="600">
 <div class="wrap">
   <div class="topbar">
     <a class="back" href="../index.html#client-sites">← Back to portfolio</a>
@@ -81,8 +89,7 @@
     <h1>Production marketing sites for home-services clients</h1>
     <ul class="meta"><li>Freelance</li><li>Design &amp; front-end</li><li>Altin Construction, Altin Landscaping, EliteViewGlass</li></ul>
     <dl class="facts"><dt>Problem</dt><dd>Each client needed a fast, credible marketing site — not a page built on a generic site builder.</dd><dt>Approach</dt><dd>Designed and built each site from scratch, deployed on Cloudflare Workers with D1 database migrations.</dd><dt>Outcome</dt><dd>Three production sites live for real clients.</dd><dt>Stack</dt><dd><ul class="chips"><li>Cloudflare Workers</li><li>D1</li><li>Responsive design</li></ul></dd></dl>
-    <h2 class="gallery-head">Screenshots</h2>
-    <div class="gallery"><img src="../images/case-altin-landscaping.jpg" alt="Altin Landscaping homepage, hero section" loading="lazy" width="1200" height="750"><img src="../images/case-eliteviewglass.jpg" alt="EliteViewGlass homepage, split residential and commercial hero" loading="lazy" width="1200" height="750"></div>
+    <h2 class="gallery-head">More screenshots</h2><div class="gallery"><img src="../images/case-eliteviewglass.jpg" alt="EliteViewGlass homepage, split residential and commercial hero" loading="lazy"></div>
   </main>
   <footer>
     <a href="mailto:javadhp@outlook.com">javadhp@outlook.com</a>

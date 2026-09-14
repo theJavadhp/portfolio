@@ -300,24 +300,10 @@
     border: 1.5px solid var(--chip); color: var(--slate); background: var(--paper);
   }
 
-  /* ---------- selected work ---------- */
+  /* ---------- my works ---------- */
   .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: 32px; margin-bottom: 36px; }
-  .dots {
-    height: 104px; border-radius: 4px;
-    background: radial-gradient(circle, var(--fill) 2.2px, transparent 2.7px) 0 0 / 14px 14px;
-  }
-  .work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 72px); padding: 0; list-style: none; }
-  .work > li { padding-block: 28px 34px; border-top: 1px solid var(--rule); }
-  .work .meta { margin-bottom: 10px; }
-  .work h3 { font: 700 clamp(21px, 1.9vw, 25px)/1.22 var(--sans); letter-spacing: -0.015em; margin-bottom: 10px; }
-  .work h3 a { color: var(--ink); text-decoration: none; }
-  .work h3 a:hover { text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 2px; }
-  .work p { color: var(--slate); font-size: 16px; max-width: 58ch; }
-  .work .chips { margin-top: 16px; }
   @media (max-width: 760px) {
     .section-head { grid-template-columns: 1fr; }
-    .dots { height: 56px; }
-    .work { grid-template-columns: 1fr; }
   }
 
   /* ---------- case studies ---------- */
@@ -407,7 +393,6 @@
     </a>
     <nav id="site-nav" aria-label="Sections">
       <a href="#work">Work</a>
-      <a href="#case-studies">Case studies</a>
       <a href="#skills">Skills</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -539,59 +524,7 @@
 
 <section id="work" class="section wrap" aria-labelledby="work-title">
   <div class="section-head">
-    <h2 id="work-title" class="display">Selected work<span class="stop">.</span></h2>
-    <div class="dots" aria-hidden="true"></div>
-  </div>
-  <ul class="work">
-
-    <li>
-      <ul class="meta"><li>AI pipeline</li><li>Solo build</li></ul>
-      <h3><a href="#framechain">FrameChain — URL to finished video</a></h3>
-      <p>A nine-stage pipeline that reads a website and produces a hero background video: site analysis, brief, story, refinement, locked shot plan, keyframes, motion, assembly, export. Sole designer and developer.</p>
-      <ul class="chips"><li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Claude API</li><li>Prisma</li></ul>
-    </li>
-
-    <li>
-      <ul class="meta"><li>Mobile</li><li>iOS + Android</li></ul>
-      <h3><a href="#skyporter">SkyPorter — Flutter marketplace</a></h3>
-      <p>Peer-to-peer baggage-sharing marketplace. 28 screens, two multi-step listing flows, in-app chat, push notifications. Designed the whole thing and wrote most of the code.</p>
-      <ul class="chips"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>OAuth</li></ul>
-    </li>
-
-    <li>
-      <ul class="meta"><li>AI product</li><li>Web client</li></ul>
-      <h3><a href="#reno-studio">Reno Studio — renovation preview</a></h3>
-      <p>Upload a photo, describe a change, get a photorealistic preview. I own the web client: guided studio flow, stone→color→pattern material picker across two supplier catalogs, provider toggle.</p>
-      <ul class="chips"><li>Next.js</li><li>Gemini</li><li>Cloudflare R2</li><li>Vitest</li></ul>
-    </li>
-
-    <li>
-      <ul class="meta"><li>Client sites</li><li>Production</li></ul>
-      <h3><a href="#client-sites">Commercial marketing sites</a></h3>
-      <p>Designed and built production sites for Altin Construction, Altin Landscaping, and EliteViewGlass — on Cloudflare Workers with D1 database migrations.</p>
-      <ul class="chips"><li>Cloudflare Workers</li><li>D1</li><li>Responsive</li></ul>
-    </li>
-
-    <li>
-      <ul class="meta"><li>E-commerce</li><li>UX + Brand</li></ul>
-      <h3><a href="#ehsan-foods">Ehsan Foods — site UX & visual system</a></h3>
-      <p>Owned UX improvements on the e-commerce site — simplified browse and checkout, aligned visual identity across web, packaging, and social.</p>
-      <ul class="chips"><li>UX</li><li>Visual design</li><li>Packaging</li><li>Print + digital</li></ul>
-    </li>
-
-    <li>
-      <ul class="meta"><li>Fintech</li><li>10 years</li></ul>
-      <h3><a href="#mofid">Mofid — brokerage & trading platform</a></h3>
-      <p>Ten years designing web and mobile interfaces for an online brokerage — including its website and a concept-to-final redesign of sign-in and registration whose patterns were adopted platform-wide.</p>
-      <ul class="chips"><li>Interaction design</li><li>Typography</li><li>Fintech</li></ul>
-    </li>
-
-  </ul>
-</section>
-
-<section id="case-studies" class="section wrap" aria-labelledby="cases-title">
-  <div class="section-head">
-    <h2 id="cases-title" class="display">Case studies<span class="stop">.</span></h2>
+    <h2 id="work-title" class="display">My Works<span class="stop">.</span></h2>
   </div>
 
   <article id="framechain" class="case">
@@ -629,7 +562,7 @@
         <dt>Outcome</dt><dd>Working end-to-end product. Cost is quoted before every paid step and runs that would exceed a configured cap are blocked outright — which matters when a single multi-stage job can chain a dozen billable generations.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Prisma</li><li>Zod</li><li>Anthropic Claude</li><li>KIE</li><li>Tailwind</li></ul></dd>
       </dl>
-      <p class="case-more"><a href="work/framechain.html">View screenshots →</a></p>
+      <p class="case-more"><a href="work/framechain.html">Read more →</a></p>
     </div>
   </article>
 
@@ -659,7 +592,7 @@
         <dt>Outcome</dt><dd>Complete iOS and Android app built in Flutter, wired to a Node.js REST API with push notifications through Firebase. I wrote 53 of the 64 commits on the mobile client.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Flutter</li><li>Dart</li><li>Firebase Cloud Messaging</li><li>Google & Apple Sign-In</li><li>REST</li></ul></dd>
       </dl>
-      <p class="case-more"><a href="work/skyporter.html">View screenshots →</a></p>
+      <p class="case-more"><a href="work/skyporter.html">Read more →</a></p>
     </div>
   </article>
 
@@ -698,7 +631,7 @@
         <dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd>
       </dl>
-      <p class="case-more"><a href="work/reno-studio.html">View screenshots →</a></p>
+      <p class="case-more"><a href="work/reno-studio.html">Read more →</a></p>
     </div>
   </article>
 
@@ -728,7 +661,7 @@
         <dt>Outcome</dt><dd>Three production sites live for real clients.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Cloudflare Workers</li><li>D1</li><li>Responsive design</li></ul></dd>
       </dl>
-      <p class="case-more"><a href="work/client-sites.html">View screenshots →</a></p>
+      <p class="case-more"><a href="work/client-sites.html">Read more →</a></p>
     </div>
   </article>
 
@@ -761,7 +694,7 @@
         <dt>Outcome</dt><dd>A faster, more intuitive customer journey. Visual identity now consistent across every touchpoint — web, in-package, and social campaigns.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Figma</li><li>Adobe CC</li><li>Web + print production</li></ul></dd>
       </dl>
-      <p class="case-more"><a href="work/ehsan-foods.html">View screenshots →</a></p>
+      <p class="case-more"><a href="work/ehsan-foods.html">Read more →</a></p>
     </div>
   </article>
 
@@ -791,7 +724,7 @@
         <dt>Outcome</dt><dd>Patterns from this work were adopted across the platform. Across a ten-year tenure I designed web and mobile interfaces for the brokerage, including its website.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Figma</li><li>Typography systems</li><li>Interaction design</li><li>Financial UX</li></ul></dd>
       </dl>
-      <p class="case-more"><a href="work/mofid.html">View screenshots →</a></p>
+      <p class="case-more"><a href="work/mofid.html">Read more →</a></p>
     </div>
   </article>
 </section>
