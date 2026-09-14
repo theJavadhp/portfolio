@@ -566,7 +566,7 @@
 
     <li>
       <ul class="meta"><li>Client sites</li><li>Production</li></ul>
-      <h3>Commercial marketing sites</h3>
+      <h3><a href="#client-sites">Commercial marketing sites</a></h3>
       <p>Designed and built production sites for Altin Construction, Altin Landscaping, and EliteViewGlass — on Cloudflare Workers with D1 database migrations.</p>
       <ul class="chips"><li>Cloudflare Workers</li><li>D1</li><li>Responsive</li></ul>
     </li>
@@ -694,6 +694,23 @@
         <dt>Decision</dt><dd>Serve catalog imagery from object storage rather than the repo. More than a hundred swatch, hero, and laying-pattern images (about 17 MB) were about to go into the shared git history — moving them to R2 and stripping them out before the first push kept the repo to code, not binaries.</dd>
         <dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</dd>
         <dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd>
+      </dl>
+    </div>
+  </article>
+
+  <article id="client-sites" class="case">
+    <div class="case-art">
+      <img class="case-shot" src="images/case-altin-landscaping.jpg" alt="Altin Landscaping homepage, hero section" loading="lazy" width="1200" height="750">
+      <img class="case-shot" src="images/case-eliteviewglass.jpg" alt="EliteViewGlass homepage, split residential and commercial hero" loading="lazy" width="1200" height="750">
+    </div>
+    <div>
+      <h3>Production marketing sites for home-services clients</h3>
+      <ul class="meta"><li>Freelance</li><li>Design & front-end</li><li>Altin Construction, Altin Landscaping, EliteViewGlass</li></ul>
+      <dl class="facts">
+        <dt>Problem</dt><dd>Each client needed a fast, credible marketing site — not a page built on a generic site builder.</dd>
+        <dt>Approach</dt><dd>Designed and built each site from scratch, deployed on Cloudflare Workers with D1 database migrations.</dd>
+        <dt>Outcome</dt><dd>Three production sites live for real clients.</dd>
+        <dt>Stack</dt><dd><ul class="chips"><li>Cloudflare Workers</li><li>D1</li><li>Responsive design</li></ul></dd>
       </dl>
     </div>
   </article>
