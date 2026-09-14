@@ -51,7 +51,11 @@ portfolio/
 └── CLAUDE.md                             # this file
 ```
 
-**Case-study screenshots (added Sep 14, 2026):** each case study on `index.html` stays illustration-only (flat riso SVG, no real screenshots inline — a photorealistic device mockup was tried inline and didn't match the site's flat aesthetic) and ends with a "View screenshots →" link to `work/<slug>.html`. That page duplicates the full Problem/Approach/Decision/Outcome/Stack text and holds a `.gallery` grid of real screenshots, framed with a thin `--rule` border, no drop shadow — same treatment as any other screenshot per the guidance below, device mockups included if that's what's available. A project with no screenshots yet shows a dashed-border "Screenshots coming soon" placeholder (see `work/framechain.html`, `reno-studio.html`, `ehsan-foods.html`) — Javad is adding more over time; just append `<img>` tags to that page's `.gallery` div, no other changes needed. Current screenshots: Mofid (real sign-in screen), SkyPorter (real screen composited into an iPhone mockup — mockup style is fine *inside* a work/ gallery, just not inline on the main page), and the client-sites case study (live captures of altinlandscaping.com and eliteviewglass.com homepages).
+**Case-study screenshots (added Sep 14, 2026):** each case study on `index.html` stays illustration-only (flat riso SVG, no real screenshots inline — a photorealistic device mockup was tried inline and didn't match the site's flat aesthetic) and ends with a "Read more →" link to `work/<slug>.html`.
+
+Each `work/<slug>.html` page: a full-bleed **21:9 header banner** (`<img class="hero-shot">`, `object-fit: cover`) using that project's first/primary screenshot, sitting above the back link and title; then the full duplicated Problem/Approach/Decision/Outcome/Stack text; then, only if there's more than one screenshot, a "More screenshots" `.gallery` grid (thin `--rule` border, no drop shadow) below the text for the rest. A project with no screenshot yet shows a diagonal-hatch "Screenshot coming soon" placeholder in that same 21:9 slot (see `work/framechain.html`, `reno-studio.html`, `ehsan-foods.html`).
+
+**To add a screenshot Javad sends:** optimize it, drop it in `images/`, then either (a) it's the project's first/only image — replace the `.hero-shot-empty` div with `<img class="hero-shot" src="../images/<file>" alt="..." width="1400" height="600">`, or (b) it's an additional image — append an `<img>` to that page's `.gallery` div (add the `<h2 class="gallery-head">More screenshots</h2><div class="gallery">...</div>` block if this is the first extra image). Device mockups (phone-in-hand, etc.) are fine as the header or in the gallery, just not inline on the main `index.html` page. Current screenshots: Mofid (real sign-in screen, header), SkyPorter (real screen in an iPhone mockup, header), and client-sites (Altin Landscaping as header, EliteViewGlass in the gallery — both live captures of the deployed sites).
 
 ---
 
@@ -93,11 +97,10 @@ The old coral `#ff7a59` and blue `#7ab7ff` fail on a light ground (2.4:1 and 2.0
 1. **Top bar** (sticky) — JH monogram, name + role, anchor nav, "Hire me" mailto
 2. **Hero** — "Hi, my name is **Javad**." with the original headline ("I design products and ship the front-end myself.") as its subline, beside the interactive design-tool scene
 3. **Intro** ("Let's work together.") — the positioning paragraph and 3 CTAs (email, résumé, LinkedIn)
-4. **Selected work** (`#work`) — 6 items; titles link to their case study
-5. **Case studies** (`#case-studies`) — 5 write-ups (`#framechain`, `#skyporter`, `#reno-studio`, `#ehsan-foods`, `#mofid`), each with a riso illustration and Problem / Approach / Decision / Outcome / Stack
-6. **Skills** (`#skills`) — 6 groups
-7. **About** (`#about`) — one paragraph
-8. **Footer** (`#contact`) — "Let's talk.", email, LinkedIn, résumé
+4. **My Works** (`#work`) — 6 case studies (`#framechain`, `#skyporter`, `#reno-studio`, `#client-sites`, `#ehsan-foods`, `#mofid`), each with a riso illustration and Problem / Approach / Decision / Outcome / Stack, ending in a "Read more →" link to that project's `work/*.html` page. **Merged Sep 14, 2026** — this used to be two sections ("Selected work" summaries + a separate "Case studies" section covering the same 6 projects at more depth); they were identical in substance, so they're now one section and one nav link. Don't re-split them without asking.
+5. **Skills** (`#skills`) — 6 groups
+6. **About** (`#about`) — one paragraph
+7. **Footer** (`#contact`) — "Let's talk.", email, LinkedIn, résumé
 
 Section anchors are linked from the nav — keep them stable.
 
