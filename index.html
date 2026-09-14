@@ -329,6 +329,7 @@
   .case:first-of-type { border-top: 0; padding-top: 8px; }
   .case-art { position: sticky; top: calc(var(--topbar) + var(--fw) + 32px); align-self: start; }
   .case-art svg { width: 100%; height: auto; overflow: visible; }
+  .case-shot { display: block; width: 100%; height: auto; margin-top: 18px; border: 1px solid var(--rule); border-radius: 6px; }
   .case h3 { font: 700 clamp(26px, 2.7vw, 36px)/1.14 var(--sans); letter-spacing: -0.022em; margin-bottom: 14px; max-width: 30ch; }
   .case > div > .meta { margin-bottom: 30px; }
   .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; }
@@ -340,6 +341,16 @@
     .case-art { position: static; max-width: 230px; }
     .facts { grid-template-columns: 1fr; gap: 4px; }
     .facts dt:not(:first-child) { margin-top: 14px; }
+  }
+
+  /* ---------- coursework ---------- */
+  .coursework-note { color: var(--slate); max-width: 60ch; margin-bottom: 32px; }
+  .coursework-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 32px); list-style: none; padding: 0; }
+  .coursework-grid img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 14px; }
+  .coursework-grid h3 { font: 700 18px/1.3 var(--sans); letter-spacing: -0.015em; margin-bottom: 6px; }
+  .coursework-grid p { color: var(--slate); font-size: 15px; }
+  @media (max-width: 760px) {
+    .coursework-grid { grid-template-columns: 1fr; }
   }
 
   /* ---------- skills ---------- */
@@ -720,8 +731,8 @@
   </article>
 
   <article id="mofid" class="case">
-    <div class="case-art" aria-hidden="true">
-      <svg viewBox="0 0 240 200" focusable="false">
+    <div class="case-art">
+      <svg viewBox="0 0 240 200" focusable="false" aria-hidden="true">
         <defs>
           <rect id="mf-card" x="70" y="62" width="120" height="126" rx="12" />
         </defs>
@@ -735,6 +746,7 @@
         <rect class="rz-base" x="88" y="137" width="84" height="15" rx="7.5" /><rect class="rz-line thin" x="88" y="137" width="84" height="15" rx="7.5" />
         <rect class="rz-solid" x="88" y="161" width="84" height="16" rx="8" />
       </svg>
+      <img class="case-shot" src="images/mofid-signin.jpg" alt="Mofid sign-in screen on mobile, in Persian" loading="lazy" width="800" height="424">
     </div>
     <div>
       <h3>Designing for retail investors at Mofid</h3>
@@ -747,6 +759,28 @@
       </dl>
     </div>
   </article>
+</section>
+
+<section class="section wrap" aria-labelledby="coursework-title">
+  <h2 id="coursework-title" class="display">UX certificate coursework<span class="stop">.</span></h2>
+  <p class="coursework-note">Practice projects from the UX/UI Design Certificate, University of Toronto School of Continuing Studies, 2023.</p>
+  <ul class="coursework-grid">
+    <li>
+      <img src="images/coursework-simplist.jpg" alt="Simplist task-list app screens on laptop and phone" loading="lazy" width="800" height="424">
+      <h3>Simplist</h3>
+      <p>Effortless task management and collaboration.</p>
+    </li>
+    <li>
+      <img src="images/coursework-easy-travel.jpg" alt="Easy Travel trip-planning app screens on phone" loading="lazy" width="800" height="424">
+      <h3>Easy Travel</h3>
+      <p>An app designed to help you plan your trip more efficiently.</p>
+    </li>
+    <li>
+      <img src="images/coursework-fridge-friend.jpg" alt="Fridge Friend food-inventory app screens on phone" loading="lazy" width="800" height="424">
+      <h3>Fridge Friend</h3>
+      <p>Designed to help reduce household food waste.</p>
+    </li>
+  </ul>
 </section>
 
 <section id="skills" class="section wrap" aria-labelledby="skills-title">
