@@ -55,7 +55,7 @@ portfolio/
 
 Each `work/<slug>.html` page: a full-bleed **21:9 header banner** (`<img class="hero-shot">`, `object-fit: cover`) using that project's first/primary screenshot, sitting above the back link and title; then the full duplicated Problem/Approach/Decision/Outcome/Stack text; then, only if there's more than one screenshot, a "More screenshots" `.gallery` grid (thin `--rule` border, no drop shadow) below the text for the rest. A project with no screenshot yet shows a diagonal-hatch "Screenshot coming soon" placeholder in that same 21:9 slot (see `work/framechain.html`, `reno-studio.html`, `ehsan-foods.html`).
 
-**To add a screenshot Javad sends:** optimize it, drop it in `images/`, then either (a) it's the project's first/only image — replace the `.hero-shot-empty` div with `<img class="hero-shot" src="../images/<file>" alt="..." width="1400" height="600">`, or (b) it's an additional image — append an `<img>` to that page's `.gallery` div (add the `<h2 class="gallery-head">More screenshots</h2><div class="gallery">...</div>` block if this is the first extra image). Device mockups (phone-in-hand, etc.) are fine as the header or in the gallery, just not inline on the main `index.html` page. Current screenshots: Mofid (real sign-in screen, header), SkyPorter (real screen in an iPhone mockup, header), and client-sites (Altin Landscaping as header, EliteViewGlass in the gallery — both live captures of the deployed sites).
+**To add a screenshot Javad sends:** optimize it, drop it in `images/`, then either (a) it's the project's first/only image — replace the `.hero-shot-empty` div with `<img class="hero-shot" src="../images/<file>" alt="..." width="1400" height="600">`, or (b) it's an additional image — append an `<img>` to that page's `.gallery` div (add the `<h2 class="gallery-head">More screenshots</h2><div class="gallery">...</div>` block if this is the first extra image). Device mockups (phone-in-hand, etc.) are fine as the header or in the gallery, just not inline on the main `index.html` page. Current screenshots: Mofid (real sign-in screen, header, plus a 7-image gallery added Nov 22, 2026 from Javad's own portfolio files: mobile account opening, My Mofid, desktop sign-in, registration back office, user management, Pellekan, website; very wide mockups use `.gallery img.wide` to span the row), SkyPorter (real screen in an iPhone mockup, header), and client-sites (Altin Landscaping as header, EliteViewGlass in the gallery — both live captures of the deployed sites).
 
 ---
 
@@ -125,13 +125,13 @@ This is a résumé-adjacent document used in real job applications. **Factual er
 | Period | Role | Company |
 |---|---|---|
 | May 2026 – present | Product Designer & Front-End Developer | Trimo Tech (early-stage startup, Toronto — he's a co-founder but the site deliberately does **not** say so) |
-| Jul 2024 – May 2026 | Independent Designer & Content Creator | Self-employed |
-| Jan 2023 – Jul 2024 | UX Designer & Graphic Designer | Ehsan Foods |
-| 2013 – Jan 2023 | UI/UX Designer | Mofid (online brokerage & stock trading platform, Iran) |
+| Feb 2023 – May 2026 | Independent Designer & Content Creator (freelance; clients include Ehsan Foods) | Self-employed |
+| Oct 2016 – Jan 2023 | UI/UX Designer (software teams) | Mofid (online brokerage & stock trading platform, Tehran, Iran) |
+| Jan 2013 – Sep 2016 | Graphic Designer | Mofid |
 
-~13 years total. Site currently says "over a decade." He is positioning as **mid-level** despite the tenure — this is his explicit choice, don't "correct" it.
+Timeline updated Nov 22, 2026 at Javad's instruction: Ehsan Foods is client work inside the freelance period, and Mofid shows both roles. ~13 years total. Site currently says "over a decade." He is positioning as **mid-level** despite the tenure — this is his explicit choice, don't "correct" it.
 
-**Education:** UX/UI Design Certificate, University of Toronto School of Continuing Studies, Jun 2023.
+**Education:** Bachelor of Computer Engineering, Mehr Higher Education Institute, Arak, Iran, 2013 (confirmed Nov 22, 2026); UX/UI Design Certificate, University of Toronto School of Continuing Studies, Jun 2023.
 **Languages:** English (professional), Persian (native). Canadian citizen.
 **Contact:** javadhp@outlook.com · linkedin.com/in/javadhakimpanah
 
@@ -148,9 +148,9 @@ AI home-renovation preview: upload a photo, describe a change, get a photorealis
 
 **Client marketing sites** — Altin Construction, Altin Landscaping, EliteViewGlass. Cloudflare Workers + D1 migrations.
 
-**Ehsan Foods** (Jan 2023 – Jul 2024) — confirmed by Javad (Sep 10, 2026): simplified browse, checkout, and the category structure; tightened typography and spacing; the customer journey got faster; one visual system across web, packaging, and social.
+**Ehsan Foods** (freelance client, 2023–2024; shown as "Freelance client" since Nov 22, 2026) — confirmed by Javad (Sep 10, 2026): simplified browse, checkout, and the category structure; tightened typography and spacing; the customer journey got faster; one visual system across web, packaging, and social.
 
-**Mofid** (2013–Jan 2023) — ten years designing brokerage and trading interfaces. Confirmed by Javad (Sep 10, 2026): asked which Mofid work he designed, he named the website and the sign-in/registration flow. The sign-up redesign was concept-to-final with patterns adopted platform-wide; the old flow was friction-heavy, hurt completion, and was visually inconsistent with the platform; the redesign cut the steps to a usable account. **Order entry, portfolio views, and market data were not confirmed** and were removed from the site and the résumé. He confirmed his Mofid work covered mobile as well as web.
+**Mofid** (Jan 2013 – Jan 2023; graphic designer until Sep 2016, then UI/UX designer on the software teams) — ten-year tenure, the last six designing brokerage and trading interfaces. Confirmed by Javad (Nov 22, 2026): lead designer in role, not his official title, working with two other designers in a team of ten; worked on EasyTrader, My Mofid, Pellekan, the OAuth sign-up/sign-in (designed it and built its front end; the old login wasn't mobile-friendly as customers moved from laptops to phones; still in use) and internal admin panels. Visit figures come from his own Similarweb reports for Nov 2022 – Jan 2023: reg.emofid.com about 490,000 visits a month, 91% mobile; my.emofid.com about 2.1 million, 87% mobile. Confirmed by Javad (Sep 10, 2026): asked which Mofid work he designed, he named the website and the sign-in/registration flow. The sign-up redesign was concept-to-final with patterns adopted platform-wide; the old flow was friction-heavy, hurt completion, and was visually inconsistent with the platform; the redesign cut the steps to a usable account. **Order entry, portfolio views, and market data were not confirmed** and were removed from the site and the résumé. He confirmed his Mofid work covered mobile as well as web.
 
 ---
 
@@ -179,4 +179,4 @@ When Javad sends more screenshots: optimize (resize + JPEG ~70-75 quality via `s
 - **Keep it fast.** A visit costs about 61KB: `index.html` (~14KB gzipped) plus the 46KB font — no images load on the page itself. That's a feature — he designs performance-conscious interfaces and the site should demonstrate it. No loading screens.
 - **Test by opening `index.html` directly** in a browser (`python3 -m http.server 8000`), and check the résumé link resolves.
 - **Deploy = `git push origin main`.** Live in about a minute.
-- If you change anything factual, tell Javad explicitly so he can update the résumé in `~/Documents/Claude/Projects/Jobjob/` to match. The résumé, portfolio, and his LinkedIn all have to agree.
+- If you change anything factual, tell Javad explicitly so he can update the résumé in `~/workspace/jobjob/` (`profile/facts.yaml`, rendered by `resume/render_resume.js`) to match. The résumé, portfolio, and his LinkedIn all have to agree.
