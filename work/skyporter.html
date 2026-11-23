@@ -43,7 +43,7 @@
   .stop { color: var(--pen); }
 
   /* full-bleed 21:9 header, sitting right inside the fixed frame */
-  .hero-shot { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+  .hero-shot { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
   .hero-shot-empty {
     width: 100%; aspect-ratio: 21 / 9; display: flex; align-items: center; justify-content: center;
     background: repeating-linear-gradient(-45deg, var(--fill) 0 3px, transparent 3px 8px);
@@ -77,6 +77,11 @@
   footer { padding-block: 32px; border-top: 1px solid var(--rule); margin-top: 24px; }
   footer a { font-weight: 600; }
   .foot-small { color: var(--slate); font-size: 13px; margin-top: 8px; }
+
+  .gallery figure { margin: 0; }
+  .gallery figcaption { font-size: 14px; line-height: 1.5; color: var(--slate); margin-top: 8px; }
+  .gallery.phones { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .gallery.phones img { border-radius: 16px; }
 </style>
 </head>
 <body>
@@ -89,7 +94,7 @@
     <h1>SkyPorter — designing a two-sided marketplace for mobile</h1>
     <ul class="meta"><li>Flutter</li><li>iOS & Android</li><li>Apr – Jun 2026</li><li>Primary designer and developer</li></ul>
     <dl class="facts"><dt>Problem</dt><dd>Travellers fly with unused baggage allowance; senders need cheap routes for parcels. Matching them means collecting a lot of structured detail — route, dates, weight, item type, budget — from two different user types without the form fatigue that kills marketplace signups.</dd><dt>Approach</dt><dd>Split each side into a five-step guided flow rather than one long form, with unfinished listings saved as drafts so nobody loses progress. Designed 28 screens covering both flows plus explore, matching, in-app chat, notifications, saved listings, and profile. Built a weight-based cost estimate so senders see an estimated total before they commit to a listing.</dd><dt>Decision</dt><dd>Native-feeling tab navigation and platform-appropriate sign-in (Apple on iOS, Google on both) rather than a single cross-platform compromise. Marketplace trust depends on the app feeling native on the device you already trust.</dd><dt>Outcome</dt><dd>Complete iOS and Android app built in Flutter, wired to a Node.js REST API with push notifications through Firebase. I wrote 53 of the 64 commits on the mobile client.</dd><dt>Stack</dt><dd><ul class="chips"><li>Flutter</li><li>Dart</li><li>Firebase Cloud Messaging</li><li>Google & Apple Sign-In</li><li>REST</li></ul></dd></dl>
-    
+    <h2 class="gallery-head">More screenshots</h2><div class="gallery phones"><figure><img src="../images/skyporter-splash.jpg" alt="SkyPorter's opening screen, a teal suitcase with a plane on its side" width="540" height="1170" loading="lazy"><figcaption>Opening screen</figcaption></figure><figure><img src="../images/skyporter-onboarding.jpg" alt="An onboarding screen that asks, Have extra baggage space?" width="540" height="1170" loading="lazy"><figcaption>Onboarding</figcaption></figure><figure><img src="../images/skyporter-explore.jpg" alt="The Explore screen, listing a request for space from Toronto to Tehran" width="540" height="1170" loading="lazy"><figcaption>Explore</figcaption></figure></div>
   </main>
   <footer>
     <a href="mailto:javadhp@outlook.com">javadhp@outlook.com</a>

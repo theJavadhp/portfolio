@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TrimoStudio — from a brief to a finished short video, step by step — Javad Hakimpanah</title>
+<meta name="description" content="TrimoStudio — from a brief to a finished short video, step by step — a case study by Javad Hakimpanah, UI/UX designer and front-end developer." />
+<meta name="theme-color" content="#f5f8fb" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%2246%22%20height%3D%2244%22%20rx%3D%2211%22%20fill%3D%22%23bfdcf5%22/%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%2246%22%20height%3D%2244%22%20rx%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%23c93d1c%22%20stroke-width%3D%225%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2241%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2229%22%20font-weight%3D%22700%22%20fill%3D%22%2313204f%22%20text-anchor%3D%22middle%22%3EJ%3C/text%3E%3C/svg%3E" />
+<link rel="preload" href="../fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  @font-face {
+    font-family: "Schibsted Grotesk";
+    src: url("../fonts/schibsted-grotesk-latin.woff2") format("woff2");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --paper: #f5f8fb; --frame: #ffffff; --ink: #13204f; --slate: #4a5578;
+    --line: #c93d1c; --fill: #bfdcf5; --pen: #2f6fd1; --rule: #d5dee9; --chip: #bccadb;
+    --sans: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --fw: clamp(8px, 1.25vw, 18px);
+    --maxw: 860px;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--frame); }
+  body {
+    margin: var(--fw); min-height: calc(100vh - 2 * var(--fw));
+    background: var(--paper); color: var(--ink);
+    font: 17px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; border: var(--fw) solid var(--frame); }
+  ::selection { background: var(--fill); color: var(--ink); }
+  img, svg { display: block; max-width: 100%; }
+  h1, h2, p, dl, dd, ul { margin: 0; }
+  h1 { text-wrap: balance; }
+  a { color: var(--line); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--pen); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 40px); }
+  .stop { color: var(--pen); }
+
+  /* full-bleed 21:9 header, sitting right inside the fixed frame */
+  .hero-shot { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+  .hero-shot-empty {
+    width: 100%; aspect-ratio: 21 / 9; display: flex; align-items: center; justify-content: center;
+    background: repeating-linear-gradient(-45deg, var(--fill) 0 3px, transparent 3px 8px);
+    color: var(--slate); font-size: 15px;
+  }
+
+  .topbar { padding-block: 28px; }
+  .back { display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--slate); }
+  .back:hover { color: var(--line); }
+
+  main { padding-block: clamp(16px, 3vw, 32px) clamp(48px, 6vw, 84px); }
+  h1 { font: 700 clamp(30px, 4vw, 44px)/1.12 var(--sans); letter-spacing: -0.026em; margin-bottom: 16px; }
+
+  .meta { display: flex; flex-wrap: wrap; row-gap: 4px; padding: 0; list-style: none; margin: 0 0 36px -10px; overflow: hidden; font-size: 14px; line-height: 1.5; color: var(--slate); }
+  .meta li { margin-left: -1px; padding-inline: 11px; background: linear-gradient(rgba(74,85,120,.45), rgba(74,85,120,.45)) left center / 1px .95em no-repeat; }
+
+  .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; }
+  .facts dt { font: 700 16.5px/1.65 var(--sans); color: var(--ink); }
+  .facts dd { font-size: 16.5px; line-height: 1.7; max-width: 64ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+  .chips li { font-size: 13px; line-height: 1; padding: 7px 11px; border-radius: 999px; border: 1.5px solid var(--chip); color: var(--slate); background: var(--paper); }
+  @media (max-width: 600px) {
+    .facts { grid-template-columns: 1fr; gap: 4px; }
+    .facts dt:not(:first-child) { margin-top: 14px; }
+  }
+
+  .gallery-head { font: 700 20px/1.3 var(--sans); letter-spacing: -0.01em; margin: 48px 0 18px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .gallery img { width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 8px; }
+
+  footer { padding-block: 32px; border-top: 1px solid var(--rule); margin-top: 24px; }
+  footer a { font-weight: 600; }
+  .foot-small { color: var(--slate); font-size: 13px; margin-top: 8px; }
+
+  .gallery figure { margin: 0; }
+  .gallery figcaption { font-size: 14px; line-height: 1.5; color: var(--slate); margin-top: 8px; }
+  .gallery.phones { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .gallery.phones img { border-radius: 16px; }
+
+  .gallery img.wide, .gallery figure.wide { grid-column: 1 / -1; }
+  .gallery.frames { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .gallery.frames img { border-radius: 12px; }
+  .gallery.posts { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+  .gallery-note { color: var(--slate); max-width: 64ch; margin: -6px 0 20px; }
+  .nowrap { white-space: nowrap; }
+  .credit { margin-top: 28px; font-size: 15px; line-height: 1.6; color: var(--slate); max-width: 64ch; }
+</style>
+</head>
+<body>
+<img class="hero-shot" src="../images/trimostudio-styles.jpg" alt="Four frames from TrimoStudio videos, each in a different style: bold yellow neo-brutalist, clean editorial, torn-paper collage, and 3D clay" width="1400" height="600">
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="../index.html#trimostudio">← Back to portfolio</a>
+  </div>
+  <main>
+    <h1>TrimoStudio — from a brief to a finished short video, step by step</h1>
+    <ul class="meta"><li>Trimo Tech</li><li>Oct – Nov 2026</li><li>Built on OpenMontage (open source)</li></ul>
+    <dl class="facts"><dt>Problem</dt><dd>The goal was 30–60 second vertical videos — infographic scenes animated in code mixed with AI-generated clips — made from a brief, a chosen style and a reference. OpenMontage, the open-source agentic video system underneath, can produce a finished video, but it's driven from a coding-agent chat. And once the first Studio features were in, the web interface had two headers on every page, one destination under several names, five button styles, and no view of where a video was in its journey.</dd><dt>Approach</dt><dd>Built the Studio layer on top of OpenMontage: a New video page that takes a brief or pulls its content from a web page, a gallery of twenty styles (most with code-rendered previews), and a KIE connector for images, clips, narration and music. Each video then moves through steps — brief, story, narration, pictures, clips, build, render — and pictures are approved before any are paid for as animated clips. Later I added an autopilot that makes a whole video by itself inside a spending cap, shown as a chat assistant docked beside the video, and a hand-off that sends a finished reel straight to A2MATE.</dd><dt>Decision</dt><dd>Rebuilt the interface around one global bar, one project header and one stepper, so you always know which video you're in, which step it's at, and what to do next. Each step shows its content and its actions in one place, with one vocabulary and one button system. It stayed plain ES modules and CSS — no framework and no build step added.</dd><dt>Outcome</dt><dd>The frames on this page come from Trimotech videos made with it, in five of its styles. I made 249 commits on top of the open-source base between October 7 and November 19, 2026.</dd><dt>Stack</dt><dd><ul class="chips"><li>OpenMontage</li><li>Python</li><li>JavaScript (ES modules)</li><li>CSS</li><li>KIE</li><li>Claude Code</li><li>MCP</li><li>Google Gemini</li></ul></dd></dl>
+    <p class="credit">Built on <a href="https://github.com/calesthio/OpenMontage">OpenMontage</a>, an open-source agentic video production system. It supplies the pipelines, render engines, cost tracking and the original Backlot board; the Studio pages, style gallery, KIE connector, autopilot and hand-offs described here are my additions.</p>
+    <h2 class="gallery-head">Frames from videos made with it</h2><div class="gallery frames"><figure><img src="../images/trimostudio-neobrutalism.jpg" alt="A frame in a bold yellow neo-brutalist style: a bar chart reading 25.2 percent, Canadian businesses planning to use AI" width="540" height="960" loading="lazy"><figcaption>AI for small business</figcaption></figure><figure><img src="../images/trimostudio-editorial.jpg" alt="A frame in a clean editorial style reading: AI drafts. A person decides." width="540" height="960" loading="lazy"><figcaption>How to reply to Google reviews</figcaption></figure><figure><img src="../images/trimostudio-paper-collage.jpg" alt="A frame in a torn-paper collage style: a price tag reading 1 dollar, for a cheaper Claude model" width="540" height="960" loading="lazy"><figcaption>This week in AI</figcaption></figure><figure><img src="../images/trimostudio-clay.jpg" alt="A frame with a 3D clay figure holding up a phone under the words: Viral doesn&#x27;t always mean" width="540" height="960" loading="lazy"><figcaption>The influencer got famous, the brand didn't</figcaption></figure><figure><img src="../images/trimostudio-kinetic-type.jpg" alt="A frame in bold kinetic type on black: Can AI write my listings" width="540" height="960" loading="lazy"><figcaption>Can AI write my listings?</figcaption></figure></div>
+  </main>
+  <footer>
+    <a href="mailto:javadhp@outlook.com">javadhp@outlook.com</a>
+    <p class="foot-small">© 2026 Javad Hakimpanah</p>
+  </footer>
+</div>
+</body>
+</html>

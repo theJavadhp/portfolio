@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Glass bake-off — finding the AI model that adds a shower without redrawing the room — Javad Hakimpanah</title>
+<meta name="description" content="Glass bake-off — finding the AI model that adds a shower without redrawing the room — a case study by Javad Hakimpanah, UI/UX designer and front-end developer." />
+<meta name="theme-color" content="#f5f8fb" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%2246%22%20height%3D%2244%22%20rx%3D%2211%22%20fill%3D%22%23bfdcf5%22/%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%2246%22%20height%3D%2244%22%20rx%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%23c93d1c%22%20stroke-width%3D%225%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2241%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2229%22%20font-weight%3D%22700%22%20fill%3D%22%2313204f%22%20text-anchor%3D%22middle%22%3EJ%3C/text%3E%3C/svg%3E" />
+<link rel="preload" href="../fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  @font-face {
+    font-family: "Schibsted Grotesk";
+    src: url("../fonts/schibsted-grotesk-latin.woff2") format("woff2");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --paper: #f5f8fb; --frame: #ffffff; --ink: #13204f; --slate: #4a5578;
+    --line: #c93d1c; --fill: #bfdcf5; --pen: #2f6fd1; --rule: #d5dee9; --chip: #bccadb;
+    --sans: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --fw: clamp(8px, 1.25vw, 18px);
+    --maxw: 860px;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--frame); }
+  body {
+    margin: var(--fw); min-height: calc(100vh - 2 * var(--fw));
+    background: var(--paper); color: var(--ink);
+    font: 17px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; border: var(--fw) solid var(--frame); }
+  ::selection { background: var(--fill); color: var(--ink); }
+  img, svg { display: block; max-width: 100%; }
+  h1, h2, p, dl, dd, ul { margin: 0; }
+  h1 { text-wrap: balance; }
+  a { color: var(--line); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--pen); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 40px); }
+  .stop { color: var(--pen); }
+
+  /* full-bleed 21:9 header, sitting right inside the fixed frame */
+  .hero-shot { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+  .hero-shot-empty {
+    width: 100%; aspect-ratio: 21 / 9; display: flex; align-items: center; justify-content: center;
+    background: repeating-linear-gradient(-45deg, var(--fill) 0 3px, transparent 3px 8px);
+    color: var(--slate); font-size: 15px;
+  }
+
+  .topbar { padding-block: 28px; }
+  .back { display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--slate); }
+  .back:hover { color: var(--line); }
+
+  main { padding-block: clamp(16px, 3vw, 32px) clamp(48px, 6vw, 84px); }
+  h1 { font: 700 clamp(30px, 4vw, 44px)/1.12 var(--sans); letter-spacing: -0.026em; margin-bottom: 16px; }
+
+  .meta { display: flex; flex-wrap: wrap; row-gap: 4px; padding: 0; list-style: none; margin: 0 0 36px -10px; overflow: hidden; font-size: 14px; line-height: 1.5; color: var(--slate); }
+  .meta li { margin-left: -1px; padding-inline: 11px; background: linear-gradient(rgba(74,85,120,.45), rgba(74,85,120,.45)) left center / 1px .95em no-repeat; }
+
+  .facts { display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); gap: 16px 28px; }
+  .facts dt { font: 700 16.5px/1.65 var(--sans); color: var(--ink); }
+  .facts dd { font-size: 16.5px; line-height: 1.7; max-width: 64ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+  .chips li { font-size: 13px; line-height: 1; padding: 7px 11px; border-radius: 999px; border: 1.5px solid var(--chip); color: var(--slate); background: var(--paper); }
+  @media (max-width: 600px) {
+    .facts { grid-template-columns: 1fr; gap: 4px; }
+    .facts dt:not(:first-child) { margin-top: 14px; }
+  }
+
+  .gallery-head { font: 700 20px/1.3 var(--sans); letter-spacing: -0.01em; margin: 48px 0 18px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .gallery img { width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 8px; }
+
+  footer { padding-block: 32px; border-top: 1px solid var(--rule); margin-top: 24px; }
+  footer a { font-weight: 600; }
+  .foot-small { color: var(--slate); font-size: 13px; margin-top: 8px; }
+
+  .gallery figure { margin: 0; }
+  .gallery figcaption { font-size: 14px; line-height: 1.5; color: var(--slate); margin-top: 8px; }
+  .gallery.phones { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .gallery.phones img { border-radius: 16px; }
+
+  .gallery img.wide, .gallery figure.wide { grid-column: 1 / -1; }
+  .gallery.frames { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .gallery.frames img { border-radius: 12px; }
+  .gallery.posts { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+  .gallery-note { color: var(--slate); max-width: 64ch; margin: -6px 0 20px; }
+  .nowrap { white-space: nowrap; }
+  .credit { margin-top: 28px; font-size: 15px; line-height: 1.6; color: var(--slate); max-width: 64ch; }
+</style>
+</head>
+<body>
+<img class="hero-shot" src="../images/glass-bakeoff-slider.jpg" alt="A bathroom photo split by a slider: the left half is the client&#x27;s before photo with an open shower alcove, the right half is gpt-image-2&#x27;s render of the same room with a frameless glass shower installed" width="1400" height="600">
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="../index.html#glass-bakeoff">← Back to portfolio</a>
+  </div>
+  <main>
+    <h1>Glass bake-off — finding the AI model that adds a shower without redrawing the room</h1>
+    <ul class="meta"><li>Trimo Tech</li><li>Aug – Oct 2026</li><li>Internal tool for a glass-installation client</li></ul>
+    <dl class="facts"><dt>Problem</dt><dd>Elite View Glass sells frameless shower glass, and the goal was a render of a customer's own bathroom with the glass installed. That's a faithful edit, not a new picture: the camera, the vanity and every tile outside the shower have to survive untouched, or the render is useless for selling glass. Image models kept failing the same few ways — redrawing the room, tinting clear glass grey or green, swapping in the wrong handle, or returning the wrong shape.</dd><dt>Approach</dt><dd>Built a small local tool that runs one prompt across six image-editing models at once and lays the results side by side, each with a before/after slider. A picker assembles the prompt from the client's real catalog — glass types, hardware finishes, handles — so what runs is always what's selected. An analyze page uses Claude to derive and critique a prompt from a real before-and-after pair, and a findings page checks photos of real finished installs against the prompt's rules and tallies where they disagree.</dd><dt>Decision</dt><dd>Judge every model against the real finished install, not just the before photo: it measures how close a model got to the actual job rather than merely what it changed. Failures then turned into specific instructions: a product name like “Starphire” told the models nothing about colour, so the glass is described as identical to ordinary window glass seen face-on.</dd><dt>Outcome</dt><dd>After three prompt versions, gpt-image-2 was the only model that returned the exact source frame — no drift, no tint, all the hardware there — at about two and a half times the wait of the fastest model. The prompt work fed the shower-glass template in Reno Studio, and the tool documented API quirks along the way, including one model's undocumented prompt-length cap, pinned down by bisection.</dd><dt>Stack</dt><dd><ul class="chips"><li>Python (standard library only)</li><li>KIE</li><li>Anthropic Claude</li><li>gpt-image-2</li><li>Prompt design</li></ul></dd></dl>
+    <h2 class="gallery-head">The third round, side by side</h2><div class="gallery"><figure><img src="../images/glass-bakeoff-before.jpg" alt="The before photo: a bathroom with a double vanity and an open shower alcove" width="800" height="450" loading="lazy"><figcaption>The before photo</figcaption></figure><figure><img src="../images/glass-bakeoff-real-install.jpg" alt="The real finished install, with frameless glass and gold hardware, and two mirrors over the vanity" width="800" height="450" loading="lazy"><figcaption>The real install. Its two mirrors are ones the prompt deliberately forbids.</figcaption></figure><figure><img src="../images/glass-bakeoff-gpt-image-2.jpg" alt="gpt-image-2&#x27;s render: the same frame and room with a clear frameless glass enclosure" width="800" height="450" loading="lazy"><figcaption>gpt-image-2 — kept the exact frame, no tint, all the hardware.</figcaption></figure><figure><img src="../images/glass-bakeoff-nano-banana-pro.jpg" alt="Nano Banana Pro&#x27;s render, with clear glass and an extra mirror inside the shower" width="800" height="447" loading="lazy"><figcaption>Nano Banana Pro — tint fixed, but adds a mirror inside the shower that the prompt forbids.</figcaption></figure><figure><img src="../images/glass-bakeoff-grok.jpg" alt="Grok&#x27;s render, with the camera moved and the vanity longer" width="800" height="451" loading="lazy"><figcaption>Grok — the best hardware, but it moved the camera and lengthened the vanity.</figcaption></figure><figure><img src="../images/glass-bakeoff-nano-banana-2.jpg" alt="Nano Banana 2&#x27;s render, with a green tint in the glass" width="800" height="450" loading="lazy"><figcaption>Nano Banana 2 — still tinted the glass, three versions in a row.</figcaption></figure><figure><img src="../images/glass-bakeoff-seedream.jpg" alt="Seedream&#x27;s render, with frosted glass and a tighter crop that loses one sink" width="800" height="450" loading="lazy"><figcaption>Seedream — frosted glass, and cropped so hard a sink is lost.</figcaption></figure></div>
+  </main>
+  <footer>
+    <a href="mailto:javadhp@outlook.com">javadhp@outlook.com</a>
+    <p class="foot-small">© 2026 Javad Hakimpanah</p>
+  </footer>
+</div>
+</body>
+</html>

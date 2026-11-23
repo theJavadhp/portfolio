@@ -330,6 +330,20 @@
     .facts dt:not(:first-child) { margin-top: 14px; }
   }
 
+  /* ---------- more projects: compact cards, full case study on each work page ---------- */
+  .more-note { color: var(--slate); max-width: 60ch; margin-top: 14px; margin-bottom: 30px; }
+  .more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(28px, 4.5vw, 64px); list-style: none; padding: 0; }
+  .more-grid > li { border-top: 1px solid var(--rule); padding-block: 32px 44px; }
+  .more-art { width: 100%; max-width: 210px; height: auto; overflow: visible; margin-bottom: 24px; }
+  .more-grid h3 { font: 700 clamp(22px, 2.2vw, 28px)/1.18 var(--sans); letter-spacing: -0.02em; text-wrap: balance; max-width: 26ch; margin-bottom: 12px; }
+  .more-grid .meta { margin-bottom: 16px; }
+  .more-grid p { max-width: 54ch; }
+  .more-grid .case-more { margin-top: 18px; }
+  @media (max-width: 760px) {
+    .more-grid { grid-template-columns: 1fr; }
+    .more-grid > li { padding-block: 28px 36px; }
+  }
+
   /* ---------- coursework ---------- */
   .coursework-note { color: var(--slate); max-width: 60ch; margin-bottom: 32px; }
   .coursework-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 32px); list-style: none; padding: 0; }
@@ -623,13 +637,13 @@
     </div>
     <div>
       <h3>Reno Studio — making an AI image tool usable by homeowners</h3>
-      <ul class="meta"><li>Trimo Tech</li><li>Web client owner</li><li>May 2026 – present</li></ul>
+      <ul class="meta"><li>Trimo Tech</li><li>Web client &amp; iOS app owner</li><li>May 2026 – present</li></ul>
       <dl class="facts">
         <dt>Problem</dt><dd>The underlying model can produce a photorealistic renovation preview, but only if the prompt is precise. Homeowners don't write precise prompts — they say "make my driveway nicer." The gap between what the user can express and what the model needs was the whole product problem.</dd>
         <dt>Approach</dt><dd>Replaced the free-text prompt box with a guided flow that walks the user through real supplier catalogs — stone, then colour, then laying pattern — and composes the technical prompt from those picks behind the scenes. Users are choosing products they can actually buy, not describing an aesthetic. Generalized it to handle two suppliers with different catalog structures, and built the step count to be dynamic so new renovation categories can add their own steps.</dd>
         <dt>Decision</dt><dd>Serve catalog imagery from object storage rather than the repo. More than a hundred swatch, hero, and laying-pattern images (about 17 MB) were about to go into the shared git history — moving them to R2 and stripping them out before the first push kept the repo to code, not binaries.</dd>
-        <dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</dd>
-        <dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd>
+        <dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from. In late September and early October I built the native iPhone app in Flutter: sign-in with a Keychain-stored token, the same guided studio, render progress with retry, a before/after compare slider, saved projects, and buy-credits screens.</dd>
+        <dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>Flutter</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd>
       </dl>
       <p class="case-more"><a href="work/reno-studio.html">Read more →</a></p>
     </div>
@@ -727,6 +741,99 @@
       <p class="case-more"><a href="work/mofid.html">Read more →</a></p>
     </div>
   </article>
+</section>
+
+<section id="more-work" class="section wrap" aria-labelledby="more-title">
+  <h2 id="more-title" class="display">More projects<span class="stop">.</span></h2>
+  <p class="more-note">Recent tools and sites from Trimo Tech, each with a full case study and screenshots.</p>
+  <ul class="more-grid">
+    <li id="a2mate">
+      <svg class="more-art" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
+        <defs>
+          <rect id="a2-slide" width="50" height="66" rx="6" />
+        </defs>
+        <rect class="rz-hatch" x="10" y="20" width="84" height="72" rx="8" />
+        <rect class="rz-base" x="16" y="14" width="84" height="72" rx="8" />
+        <rect class="rz-line thin" x="16" y="14" width="84" height="72" rx="8" />
+        <path class="rz-line thin" d="M16 32h84M37 32v54M58 32v54M79 32v54M16 50h84M16 68h84" />
+        <path class="rz-line" d="M34 8v12M82 8v12" />
+        <circle class="rz-solid" cx="47.5" cy="41" r="4" />
+        <g transform="translate(176 52)"><use href="#a2-slide" class="rz-base" /><use href="#a2-slide" class="rz-line" /><path class="rz-line thin" d="M9 14h32M9 24h20" /></g>
+        <g transform="translate(118 52)"><use href="#a2-slide" class="rz-base" /><use href="#a2-slide" class="rz-line" /><path class="rz-line thin" d="M9 14h32M9 24h24" /><circle class="rz-line thin" cx="25" cy="46" r="8" /></g>
+        <g transform="translate(60 52)"><use href="#a2-slide" class="rz-fill" x="-6" y="6" /><use href="#a2-slide" class="rz-base" /><use href="#a2-slide" class="rz-line" /><path class="rz-line thin" d="M9 14h32M9 24h26" /><rect class="rz-solid" x="9" y="44" width="24" height="10" rx="5" /></g>
+        <circle class="rz-solid" cx="127" cy="142" r="4.5" />
+        <g class="pen-node"><circle cx="143" cy="142" r="4" /><circle cx="159" cy="142" r="4" /></g>
+      </svg>
+      <h3>A2MATE — a month of on-brand Instagram posts from one calendar</h3>
+      <ul class="meta"><li>Trimo Tech</li><li>Nov 2026</li><li>Solo</li></ul>
+      <p>Turns a month's content calendar into finished carousels, stories and reel covers for several businesses, each in its own approved brand kit — with automatic checks, a source behind every claim, and fixes one slide at a time.</p>
+      <p class="case-more"><a href="work/a2mate.html">Read more →</a></p>
+    </li>
+    <li id="trimostudio">
+      <svg class="more-art" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
+        <defs>
+          <rect id="ts-frame" width="54" height="96" rx="8" />
+        </defs>
+        <g transform="rotate(-10 65 66)"><use href="#ts-frame" x="38" y="18" class="rz-base" /><use href="#ts-frame" x="38" y="18" class="rz-hatch" /><use href="#ts-frame" x="38" y="18" class="rz-line thin" /></g>
+        <g transform="rotate(10 173 66)"><use href="#ts-frame" x="146" y="18" class="rz-base" /><use href="#ts-frame" x="146" y="18" class="rz-line thin" /><path class="rz-line thin" d="M156 36h34M156 46h22" /><circle class="rz-line thin" cx="173" cy="84" r="12" /></g>
+        <use href="#ts-frame" x="79" y="15" class="rz-fill" />
+        <use href="#ts-frame" x="86" y="8" class="rz-base" />
+        <use href="#ts-frame" x="86" y="8" class="rz-line" />
+        <path class="rz-solid" d="M104 42v28l23-14z" />
+        <path class="pen-thin" d="M22 138h196" />
+        <g class="pen-node"><circle cx="30" cy="138" r="4.5" /><circle cx="61" cy="138" r="4.5" /><circle cx="92" cy="138" r="4.5" /><circle cx="123" cy="138" r="4.5" /><circle cx="154" cy="138" r="4.5" /><circle cx="185" cy="138" r="4.5" /></g>
+        <circle class="rz-solid" cx="216" cy="138" r="5.5" />
+      </svg>
+      <h3>TrimoStudio — from a brief to a finished short video, step by step</h3>
+      <ul class="meta"><li>Trimo Tech</li><li>Oct – Nov 2026</li><li>Built on OpenMontage</li></ul>
+      <p>A browser studio on top of an open-source agentic video system: twenty styles, a project page with one stepper from brief to render, and an autopilot that makes a video by itself inside a spending cap.</p>
+      <p class="case-more"><a href="work/trimostudio.html">Read more →</a></p>
+    </li>
+    <li id="trimotech-site">
+      <svg class="more-art" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
+        <defs>
+          <rect id="tw-card" width="112" height="92" rx="8" />
+        </defs>
+        <g transform="translate(48 10)"><use href="#tw-card" class="rz-base" /><use href="#tw-card" class="rz-hatch" /><use href="#tw-card" class="rz-line thin" /></g>
+        <g transform="translate(34 24)"><use href="#tw-card" class="rz-base" /><use href="#tw-card" class="rz-line thin" /></g>
+        <g transform="translate(20 38)">
+          <use href="#tw-card" class="rz-fill" x="-7" y="7" /><use href="#tw-card" class="rz-base" /><use href="#tw-card" class="rz-line" />
+          <rect class="rz-hatch" x="12" y="12" width="40" height="30" rx="4" /><rect class="rz-line thin" x="12" y="12" width="40" height="30" rx="4" />
+          <path class="rz-line" d="M62 18h38" />
+          <path class="rz-line thin" d="M62 30h30M12 56h88M12 68h76M12 80h60" />
+        </g>
+        <path class="pen-line" d="M186 40l30 52h-60z" />
+        <path class="rz-line thin" d="M208 104l10 17h-20z" />
+        <path class="rz-solid" d="M168 112l8 14h-16z" />
+      </svg>
+      <h3>trimotech.ca — a company site with a <span class="nowrap">build-time</span> blog and no dependencies</h3>
+      <ul class="meta"><li>Trimo Tech</li><li>Sep – Oct 2026</li><li>Front-end development</li></ul>
+      <p>Grew a single static page into a full company site: a Markdown blog rendered at build time, service and pricing pages, and a Work page of device mockups — still without a single npm dependency.</p>
+      <p class="case-more"><a href="work/trimotech-site.html">Read more →</a></p>
+    </li>
+    <li id="glass-bakeoff">
+      <svg class="more-art" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
+        <defs>
+          <rect id="gb-frame" x="20" y="10" width="200" height="112" rx="8" />
+        </defs>
+        <use href="#gb-frame" class="rz-base" /><use href="#gb-frame" class="rz-fill" x="-7" y="7" />
+        <path class="rz-hatch" d="M28 10h92v112H28a8 8 0 0 1-8-8V18a8 8 0 0 1 8-8z" />
+        <use href="#gb-frame" class="rz-line" />
+        <path class="rz-line thin" d="M140 30h62v78M140 30v78" />
+        <rect class="rz-line thin" x="150" y="36" width="34" height="72" rx="2" />
+        <path class="rz-line" d="M177 62v16" />
+        <path class="pen-line" d="M120 4v124" />
+        <circle class="pen-node" cx="120" cy="66" r="10" />
+        <path class="pen-thin" d="M117 62l-4 4 4 4M123 62l4 4-4 4" />
+        <g class="rz-line thin"><rect x="40" y="138" width="24" height="14" rx="3" /><rect x="76" y="138" width="24" height="14" rx="3" /><rect x="148" y="138" width="24" height="14" rx="3" /><rect x="184" y="138" width="24" height="14" rx="3" /></g>
+        <rect class="rz-solid" x="112" y="138" width="24" height="14" rx="3" />
+      </svg>
+      <h3>Glass bake-off — finding the AI model that adds a shower without redrawing the room</h3>
+      <ul class="meta"><li>Trimo Tech</li><li>Aug – Oct 2026</li><li>Internal tool</li></ul>
+      <p>A side-by-side test bench that ran one prompt across six image models for a glass-installation client, and judged each one against the real finished install.</p>
+      <p class="case-more"><a href="work/glass-bakeoff.html">Read more →</a></p>
+    </li>
+  </ul>
 </section>
 
 <section class="section wrap" aria-labelledby="coursework-title">

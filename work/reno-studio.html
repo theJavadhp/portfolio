@@ -43,7 +43,7 @@
   .stop { color: var(--pen); }
 
   /* full-bleed 21:9 header, sitting right inside the fixed frame */
-  .hero-shot { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+  .hero-shot { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
   .hero-shot-empty {
     width: 100%; aspect-ratio: 21 / 9; display: flex; align-items: center; justify-content: center;
     background: repeating-linear-gradient(-45deg, var(--fill) 0 3px, transparent 3px 8px);
@@ -77,19 +77,24 @@
   footer { padding-block: 32px; border-top: 1px solid var(--rule); margin-top: 24px; }
   footer a { font-weight: 600; }
   .foot-small { color: var(--slate); font-size: 13px; margin-top: 8px; }
+
+  .gallery figure { margin: 0; }
+  .gallery figcaption { font-size: 14px; line-height: 1.5; color: var(--slate); margin-top: 8px; }
+  .gallery.phones { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .gallery.phones img { border-radius: 16px; }
 </style>
 </head>
 <body>
-<div class="hero-shot-empty">Screenshot coming soon</div>
+<img class="hero-shot" src="../images/reno-studio-ios-screens.jpg" alt="Four Reno Studio iPhone screens in a row: choosing the job, adding a photo of a staircase, picking bathroom changes, and comparing a shower before and after its new glass" width="1400" height="600">
 <div class="wrap">
   <div class="topbar">
     <a class="back" href="../index.html#reno-studio">← Back to portfolio</a>
   </div>
   <main>
     <h1>Reno Studio — making an AI image tool usable by homeowners</h1>
-    <ul class="meta"><li>Trimo Tech</li><li>Web client owner</li><li>May 2026 – present</li></ul>
-    <dl class="facts"><dt>Problem</dt><dd>The underlying model can produce a photorealistic renovation preview, but only if the prompt is precise. Homeowners don't write precise prompts — they say “make my driveway nicer.” The gap between what the user can express and what the model needs was the whole product problem.</dd><dt>Approach</dt><dd>Replaced the free-text prompt box with a guided flow that walks the user through real supplier catalogs — stone, then colour, then laying pattern — and composes the technical prompt from those picks behind the scenes. Users are choosing products they can actually buy, not describing an aesthetic. Generalized it to handle two suppliers with different catalog structures, and built the step count to be dynamic so new renovation categories can add their own steps.</dd><dt>Decision</dt><dd>Serve catalog imagery from object storage rather than the repo. More than a hundred swatch, hero, and laying-pattern images (about 17 MB) were about to go into the shared git history — moving them to R2 and stripping them out before the first push kept the repo to code, not binaries.</dd><dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from.</dd><dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd></dl>
-    
+    <ul class="meta"><li>Trimo Tech</li><li>Web client &amp; iOS app owner</li><li>May 2026 – present</li></ul>
+    <dl class="facts"><dt>Problem</dt><dd>The underlying model can produce a photorealistic renovation preview, but only if the prompt is precise. Homeowners don't write precise prompts — they say “make my driveway nicer.” The gap between what the user can express and what the model needs was the whole product problem.</dd><dt>Approach</dt><dd>Replaced the free-text prompt box with a guided flow that walks the user through real supplier catalogs — stone, then colour, then laying pattern — and composes the technical prompt from those picks behind the scenes. Users are choosing products they can actually buy, not describing an aesthetic. Generalized it to handle two suppliers with different catalog structures, and built the step count to be dynamic so new renovation categories can add their own steps.</dd><dt>Decision</dt><dd>Serve catalog imagery from object storage rather than the repo. More than a hundred swatch, hero, and laying-pattern images (about 17 MB) were about to go into the shared git history — moving them to R2 and stripping them out before the first push kept the repo to code, not binaries.</dd><dt>Outcome</dt><dd>Guided studio flow shipped with test coverage on the material picker interactions. I also wrote the design specs and implementation plans the work was built from. In late September and early October I built the native iPhone app in Flutter: sign-in with a Keychain-stored token, the same guided studio, render progress with retry, a before/after compare slider, saved projects, and buy-credits screens.</dd><dt>Stack</dt><dd><ul class="chips"><li>Next.js</li><li>Flutter</li><li>TypeScript</li><li>Google Gemini</li><li>Cloudflare R2</li><li>Vitest</li><li>Biome</li></ul></dd></dl>
+    <h2 class="gallery-head">The iPhone app</h2><div class="gallery phones"><figure><img src="../images/reno-studio-ios-home.jpg" alt="Reno Studio home screen on iPhone, a list of jobs to preview: custom mirror, glass railing and glass walls" width="540" height="1170" loading="lazy"><figcaption>Choose the job</figcaption></figure><figure><img src="../images/reno-studio-ios-railing.jpg" alt="The aluminium railing studio, with a photo of a staircase above choices for application, colour and detail" width="540" height="1170" loading="lazy"><figcaption>Add your photo</figcaption></figure><figure><img src="../images/reno-studio-ios-bathroom.jpg" alt="The bathroom studio, with choices for fixtures, lighting and overall style above a Render preview button" width="540" height="1170" loading="lazy"><figcaption>Pick the changes</figcaption></figure><figure><img src="../images/reno-studio-ios-compare.jpg" alt="A shower shown before and after its new glass, with a slider between the two halves" width="540" height="1170" loading="lazy"><figcaption>Compare before and after</figcaption></figure></div>
   </main>
   <footer>
     <a href="mailto:javadhp@outlook.com">javadhp@outlook.com</a>
